@@ -49,8 +49,8 @@ return array(
 
     ),
     'num_display' => array(
-        'home_product'=>3,
-        'main_product'=>8,
+        'home_product'=>6,
+        'main_product'=>18,
         'related_product'=>4,
         'latest_product'=>5,
         'bestseller'=>5,

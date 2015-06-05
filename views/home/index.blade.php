@@ -1,15 +1,15 @@
-<div class="container">
+<!-- `<div class="container">
 	<div class="row no-rutter">
 		<div id="product-category">
 			
 		</div>
-	</div><!-- end row -->
-</div><!-- end container -->
+	</div>
+</div> -->
 
 <div class="container">
 	<div class="row mp no-rutter">
 		<div class="product-full wow fadeInUp">
-			@foreach(list_product(6, @$category) as $produk)
+			@foreach(home_product() as $produk)
 			<div class="item">
 				<div class="product product-default bg-grey1">
 					{{HTML::image(product_image_url($produk->gambar1))}}
@@ -23,17 +23,14 @@
 				        <div class="tab-rating">
 				        </div>
 				        <p>{{short_description($produk->deskripsi,134)}}</p>
-				        <a href="{{product_url($produk)}}" class="btn-chart">Add to Chart</a>
+				        <a href="{{product_url($produk)}}" class="btn-chart">Lihat Produk</a>
 			        </span>
 				</div>
 			</div>
 			@endforeach  
-
 		</div>
-	</div><!-- end row -->
-</div><!-- end container -->
-
-
+	</div>
+</div>
 
 <div class="container container-cstm">
 	<div class="row no-rutter mb">
@@ -43,56 +40,51 @@
 					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title"> Best seller</h1>
 				</div>
 				<div class="product-lates wow fadeInUp">
-					@foreach(best_seller(4) as $besproduk )
+					@foreach(best_seller(4) as $bestproduk )
 					<div class="item2">
 						<div class="product product-default bg-grey5">
-							{{HTML::image(product_image_url($besproduk->gambar1))}}
+							{{HTML::image(product_image_url($bestproduk->gambar1))}}
 							<div class="tab-title-default">
-								<h2>{{short_description($besproduk->nama,25)}}</h2>
-								<h3>{{price($besproduk->hargaJual)}}</h3>
+								<h2>{{short_description($bestproduk->nama,25)}}</h2>
+								<h3>{{price($bestproduk->hargaJual)}}</h3>
 							</div>
 							<span class="caption-product-related fade-caption">
-								<a href="#"><h3>{{short_description($besproduk->nama,25)}}</h3></a>
-								<h2>{{price($besproduk->hargaJual)}}</h2>
+								<a href="#"><h3>{{short_description($bestproduk->nama,25)}}</h3></a>
+								<h2>{{price($bestproduk->hargaJual)}}</h2>
 								<div class="tab-rating">
 								</div>
-								<p>{{short_description($besproduk->deskripsi,134)}}</p>
-
-								<a href="{{product_url($besproduk)}}" class="btn-chart">Add to Chart</a>
+								<p>{{short_description($bestproduk->deskripsi,134)}}</p>
+								<a href="{{product_url($bestproduk)}}" class="btn-chart">Lihat Produk</a>
 							</span>
 						</div>
 					</div>	
-					 @endforeach
-
-
+					@endforeach
 				</div>
+				<br><br>
 			</div>
 			<div class="col-sm-4">
 				<div class="tab-title">
-					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/hn-icon.png')}}" class="icon-title"> Hot News</h1>
+					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/hn-icon.png')}}" class="icon-title"> Artikel</h1>
 				</div>
 				<div class="hot-news wow fadeInUp">
 					<ul>
-						@if(count(list_blog(3,@$blog_category)) > 0)
-						@foreach(list_blog(3,@$blog_category) as $blog)
+					@if(count(list_blog(3)) > 0)
+						@foreach(list_blog(3) as $blog)
 						<li>
-							<h1><a href="blog_url($blog)}}">{{$blog->judul}}</a></h1>
-							<p>{{shortDescription($blog->isi,134)}}</p>
+							<h1><a href="{{blog_url($blog)}}">{{$blog->judul}}</a></h1>
+							<p>{{short_description($blog->isi,134)}}</p>
 							<a href="{{blog_url($blog)}}" class="read-more-news">Read More</a>
 							<div class="clearfix"></div>
 						</li>
 						@endforeach
-						<div class="pagination">
-		                {{list_blog(5,@$blog_category)->links()}}
-		                </div>
-		                @else
+	                @else
 		                <article style="font-style:italic; text-align:center;">
-		                <small>Blog tidak ditemukan.</small>
+		                	<small>Tidak ada data.</small>
 		                </article>
-		                @endif
+	                @endif
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-</div><!-- end container -->
+</div>

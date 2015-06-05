@@ -1,4 +1,16 @@
-<br>
+<div class="container">
+	<div class="row mp no-rutter">
+		<div class="advertising">
+			@foreach(horizontal_banner() as $banners)
+			<div class="col-sm-12">
+				<a href="{{url($banners->url)}}">
+                	{{HTML::image(banner_image_url($banners->gambar), 'banner', array('width'=>'1168', 'height'=>'200', "class"=>"img-responsive"))}}
+				</a>
+			</div>
+			@endforeach
+		</div>
+	</div>
+</div>
 <div class="footer">
 	<div class="top-texture"></div>
 	<div class="container">
@@ -7,20 +19,21 @@
 				<div class="header-support">
 					<h1>Testimonial</h1>
 					<div class="row">
-						 @foreach(random_testimonial(4) as $testimonial)
-                            <div class="col-sm-3">
+						@foreach(random_testimonial(4) as $testimonial)
+                        <div class="col-sm-3">
 							<div class="content-support">
 								<div class="description">
-								<!--	<img src="assets/img/support1.png"> -->
-									<h3>{{short_description($testimonial->nama,10)}}</h3>
-									<p>{{$testimonial->isi}}</p>
-								</div>
+									<p style="margin: 10px 0px -10px -5px; color: #3f3731"><i class="fa fa-user"></i> <strong>{{short_description($testimonial->nama,25)}}</strong></p>
+									<blockquote>{{short_description($testimonial->isi,110)}}</blockquote>
 								</div>
 							</div>
-                         @endforeach
-					</div><!-- end row -->
-					<a href="{{url('testimoni')}}" class="link-more-testimonial">View More</a>
-				</div><!-- end header support -->
+						</div>
+                        @endforeach
+					</div>
+					<div class="col-xs-12 col-sm-12">
+						<a href="{{url('testimoni')}}" class="link-more-testimonial">View More</a>
+					</div>
+				</div>
 
 				<div class="content-support">
 					<div class="row">
@@ -32,74 +45,69 @@
 						</div>
 						@foreach($tautan as $key=>$menu)
                             @if($key == '2')
-						<div class="col-sm-3">
-							<div class="content-footer-child">
-								<h3>Information</h3>
-								<ul>
-									@foreach($quickLink as $link_menu)
-                                      @if($menu->id == $link_menu->tautanId)
-									<li>
-										@if($link_menu->halaman == '1')
-                                            @if($link_menu->linkTo == 'halaman/about-us')
-                                            <a href="{{url(strtolower($link_menu->linkTo))}}">{{$link_menu->nama}}</a>
-                                            @else
-                                            <a href='{{url("halaman/".strtolower($link_menu->linkTo))}}'>{{$link_menu->nama}}</a>
-                                            @endif
-                                        @elseif($link_menu->halaman == '2')
-                                            <a href='{{url("blog/".strtolower($link_menu->linkTo))}}'>{{$link_menu->nama}}</a>
-
-                                        @elseif($link_menu->url == '1')
-                                            <a href="{{url(strtolower($link_menu->linkTo))}}">{{$link_menu->nama}}</a>
-                                        @else
-                                            <a href="{{url(strtolower($link_menu->linkTo))}}">{{$link_menu->nama}}</a>
-                                        @endif
-									</li>
-									@endif
-                                    @endforeach
-								</ul>
+							<div class="col-sm-3">
+								<div class="content-footer-child">
+									<h3>{{$menu->nama}}</h3>
+									<ul>
+										@foreach($quickLink as $link_menu)
+                                    	@if($menu->id == $link_menu->tautanId)
+										<li>
+                                            <a href="{{menu_url($link_menu)}}">{{$link_menu->nama}}</a>
+										</li>
+										@endif
+	                                    @endforeach
+									</ul>
+								</div>
 							</div>
-						</div>
-						@endif
-                         @endforeach
-
-
-
-
+							@endif
+                        @endforeach
+						
 						<div class="col-sm-4">
 							<div class="content-footer-child">
 								<h3>Workshop Address</h3>
 								<p>{{@$kontak->alamat}}</p>
 								<p>Phone : {{$kontak->telepon}}</p>
 								<div class="social-media">
-									@if($kontak->fb)
-									<a href="{{url($kontak->fb)}}">
+									@if(!empty($kontak->fb))
+									<a href="{{url($kontak->fb)}}" target="_blank">
 										<span class="icon-sm"><i class="fa fa-facebook icn"></i></span>
 									</a>
 									@endif
-									@if($kontak->tw)
-									<a href="{{url($kontak->tw)}}">
+									@if(!empty($kontak->tw))
+									<a href="{{url($kontak->tw)}}" target="_blank">
 										<span class="icon-sm"><i class="fa fa-twitter icn"></i></span>
 									</a>
 									@endif
-									@if($kontak->gp)
-									<a href="{{url($kontak->gp)}}">
+									@if(!empty($kontak->gp))
+									<a href="{{url($kontak->gp)}}" target="_blank">
 										<span class="icon-sm"><i class="fa fa-google-plus icn"></i></span>
 									</a>
 									@endif
-									@if($kontak->pt)
-									<a href="{{$kontak->pt}}">
-										<span class=" icon-sm"><i class="fa fa-pinterest icn"></i></span>
+									@if(!empty($kontak->pt))
+									<a href="{{$kontak->pt}}" target="_blank">
+										<span class="icon-sm"><i class="fa fa-pinterest icn"></i></span>
 									</a>
 									@endif
+									@if(!empty($kontak->ig))
+                                    <a href="{{url($kontak->ig)}}" target="_blank">
+                                    	<span class="icon-sm"><i class="fa fa-instagram icn"></i></span>
+                                	</a>
+                                    @endif
+                                    @if(!empty($kontak->tl))
+                                    <a href="{{url($kontak->tl)}}" target="_blank">
+                                        <span class="icon-sm"><i class="fa fa-tumblr icn"></i></span>
+                                    </a>
+                                    @endif
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div><!-- end footer support -->
-		</div><!-- end row -->
-	</div><!-- end container -->
-	<div class="section-author">
-		<p>&copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a style="text-decoration: none;" target="_blank" href="http://jarvis-store.com">Jarvis Store</a></p>
+			</div>
+		</div>
+
+		<div class="section-author">
+			<p>&copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a style="text-decoration: none;" target="_blank" href="http://jarvis-store.com">Jarvis Store</a></p>
+		</div>
 	</div>
-</div><!-- end footer -->
+</div>

@@ -7,16 +7,20 @@
 				<span></span>
 			</div>
 			<ul id="menus-top-section">
-				@foreach(main_menu()->link as $key=>$link)
+			{{--*/ $i=0 /*--}}
+			@foreach(main_menu()->link as $key=>$link)
+				@if($i >= 0 && $i < 6)
                 <li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
-                @endforeach
+                @endif
+            {{--*/ $i += 1 /*--}}
+            @endforeach
 				<li style="float:right;">
-					<form action="{{URL::to('search')}}" method="post" class="form-search ">
+					<form action="{{url('search')}}" method="post" class="form-search ">
 						<input type="text" placeholder="Search" name="search" class="input-text" required>
 						<button class="btn-search"><i class="fa fa-search"></i></button>
 					</form>
 				</li>
 			</ul>
 		</div>
-	</div><!-- end navigation menu -->
-</div><!-- end row -->
+	</div>
+</div>
