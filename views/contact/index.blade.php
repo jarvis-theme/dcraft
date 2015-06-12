@@ -1,6 +1,7 @@
 <div class="container" style="margin-top:-50px;">
     <div class="row mp">
         <div class="col-sm-3">
+            @if(count(best_seller()) > 0)
             <div class="left-section" style="margin-top: 77px">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -19,9 +20,10 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
+            @endif
 
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
@@ -32,7 +34,7 @@
             @endforeach
 
             {{ Theme::partial('subscribe') }}
-
+            @if(count(list_blog()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Artikel Terbaru</h1>
@@ -54,6 +56,7 @@
                     @endforeach
                 </ul>
             </div>
+            @endif
         </div>
         <div class="col-sm-9"  style="padding-top:25px;">
             <div class="single-page">

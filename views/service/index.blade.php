@@ -34,6 +34,7 @@
                 @endforeach
                 </ul>
             </div>
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -52,10 +53,11 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
-
+            @endif
+            @if(count(list_blog()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Artikel Terbaru</h1>
@@ -74,6 +76,7 @@
                     @endforeach
                 </ul>
             </div>
+            @endif
 
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">

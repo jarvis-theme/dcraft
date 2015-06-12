@@ -44,9 +44,9 @@ $(document).ready(function(){
       $(this).toggleClass('open');
     });
 
-     $('#hamburger-icon').click(function(){
+    $('#hamburger-icon').click(function(){
       $("ul#menus-top-section").slideToggle(300);
-    });    
+    });
 
      new WOW().init();
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
         }
     });
 
-    $('.sidey .sidenav').navgoco();    
+    $('.sidey .sidenav').navgoco();
 
 	/*--- bxslider ---*/
 	/*----------------*/
@@ -117,8 +117,8 @@ $(document).ready(function(){
 
     /*---thumbnail---*/
     $('.thumbnail').bxSlider({
-    pagerCustom: '#bx-pager',
-    controls:false,
+      pagerCustom: '#bx-pager',
+      controls:false,
     });
 
   /*---widget social media---*/

@@ -56,7 +56,7 @@ return array(
         'bestseller'=>5,
         'featured'=>5,
         'blog'=>5,
-        'testimonial'=>4,    
+        'testimonial'=>8,    
     ),
     'banner' => true,
     'themesColor' => false,

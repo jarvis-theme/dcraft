@@ -15,12 +15,14 @@
                     <h1>Kategori</h1>
                 </div>
                 <ul id="side-category">
-                    @foreach(list_blog_category() as $kat)
+                @foreach(list_blog_category() as $kat)
+                    @if(!empty($kat->nama)) 
                     <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
-                    @endforeach
+                    @endif
+                @endforeach
                 </ul>
             </div>
-            
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -39,10 +41,10 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
-
+            @endif
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
@@ -63,7 +65,9 @@
                             <a href="{{blog_url($blogs)}}"><h3>{{$blogs->judul}}</h3></a>
                             <p>
                                 <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                                @if(!empty($blogs->kategori->nama))
                                 <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
+                                @endif
                             </p>
                             <p>
                                 {{shortDescription($blogs->isi,300)}}<br>

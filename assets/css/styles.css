@@ -533,7 +533,8 @@ body {
       #slides .outside .next-link {
         left: 0; }
       #slides .outside .prev-link {
-        left: 0; } }
+        left: 0; }
+    }
     #slides .outside .square-link {
       width: 51px;
       height: 52px;
@@ -1182,7 +1183,7 @@ body {
   /*padding-right: 17px;*/
   /*padding-bottom: 10px;*/
   text-transform: uppercase;
-  color: #3ead7f;
+  color: #fff;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -1378,7 +1379,12 @@ body {
     font-weight: 600; }
   .single-page h4 {
     color: #5a9a0f;
-    font-family: "Source Sans Pro", sans-serif; }
+    font-family: "Source Sans Pro", sans-serif;
+  }
+  .single-page blockquote > h4,
+  .single-page blockquote > p {
+    font-style: italic;
+  }
 .single-page span {
   /*color: #91d1cc; */
   font-size: 0.8em;
@@ -1400,22 +1406,41 @@ body {
   overflow: hidden;
   width: 100%;
   margin-top: 30px;
-  background: #d3d3d3;
-  border-left: 5px solid #a4a4a4;
   margin: 5px 0;
   padding: 5px 60px;
-  quotes: "“" "“" "“" "“";
+  quotes: "\201C""\201D";
+  color: #5a9a0f;
+  border-left: transparent;
+  font-style: italic;
+  font-family: "Source Sans Pro", sans-serif;
+  /*quotes: "\201C""\201D""\2018""\2019";*/
+}
+.single-page .quotes {
+  background: #d3d3d3;
+  border-left: 5px solid #a4a4a4;
 }
 .single-page blockquote:before {
   color: #ccc;
   content: open-quote;
-  font-size: 7em;
+  font-size: 4em;
   line-height: 0;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+  /*margin-right: 0.25em;*/
+  /*vertical-align: -0.4em;*/
   position: relative;
-  top: 44px;
+  top: 30px;
   left: -40px;
+  z-index: 0;
+  margin-right: -25px;
+}
+.single-page blockquote:after {
+  color: #ccc;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0;
+  /*margin-right: 0.25em;*/
+  vertical-align: -0.6em;
+  position: relative;
+  left: 5px;
   z-index: 0;
 }
 .single-page blockquote .quote {
@@ -1641,7 +1666,7 @@ body {
     .checkout .btn-detail {
       left: 0; } }
   .checkout img {
-    float: left;
+    /*float: left;*/
     padding: 5px;
     position: relative;
     bottom: 12px; }
@@ -1835,7 +1860,8 @@ body {
 .pagination {
   overflow: hidden;
   width: 100%;
-  margin-left: 32px; }
+  /*margin-left: 32px;*/
+}
   .pagination ul {
     padding: 0;
     margin: 0; }
@@ -2194,6 +2220,7 @@ margin: 0 10px;
   .navigation-left ul > li ul > li > a {
     padding-right: 7px;
   }
+  .checkout img { padding: 0; padding-bottom: 5px; }
 }
 .navigation-left ul > li  > ul > li,
 .navigation-left ul > li  > ul > li > ul > li{
@@ -2246,7 +2273,7 @@ margin: 0 10px;
   height: 0;
   display: inline-block;
   vertical-align: top;
-  border-top: 4px solid #7B7B7B;
+  /*border-top: 4px solid #7B7B7B;*/
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
@@ -2254,27 +2281,27 @@ margin: 0 10px;
   margin-left: 2px;
 }
 .sidey .sidenav a:hover .caret {
-  border-top-color: #75b628;
+  /*border-top-color: #75b628;*/
 }
 .sidey .sidenav li.open > a > .caret {
   border-top: none;
-  border-bottom: 4px solid #7B7B7B !important;
+  /*border-bottom: 4px solid #7B7B7B !important;*/
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
 .footer .header-support p.comments {
   font-style: italic;
 }
-blockquote {
+div.footer-support div.description > blockquote {
   /*background: #f9f9f9;*/
   border-left: transparent;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C""\201D";
   font-size: 12px;
   font-style: italic;
 }
-blockquote:before {
+.footer-support blockquote:before {
   /*color: #ccc;*/
   color: #b28e71;
   content: open-quote;
@@ -2283,7 +2310,7 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
-blockquote:after {
+.footer-support blockquote:after {
   /*color: #ccc;*/
   color: #b28e71;
   content: close-quote;
@@ -2292,10 +2319,13 @@ blockquote:after {
   margin-left: 0.25em;
   vertical-align: -0.4em;
 }
-blockquote p {
+.footer-support blockquote p {
   display: inline;
 }
 #empty{ color:#d9534f; margin-right:5px; font-size:25px; }
 #text-empty{ display: inline-block;position: absolute;top: 2px; }
 .addtocart{ width: 100% !important; }
 .hot-news > ul > li > h1 { padding-bottom: 10px; }
+.respond { margin-top: 50px;padding-left: 0px; }
+.quote-person {margin-left: 30px;}
+.side-collection { margin: 10px 0; }

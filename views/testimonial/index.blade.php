@@ -50,26 +50,30 @@
                 @endforeach
                 </ul>
             </div>
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
-                    <h1>Best Selling</h1>
+                    <h1>Produk Terlaris</h1>
                 </div>
                 <ul id="tab-best-selling">
-                  @foreach(best_seller(3) as $bestproduk )
+                    @foreach(best_seller(3) as $bestproduk )
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="best-selling">
                                 {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'))}}
-                                <h3 class="product-name">{{short_description($bestproduk->nama,25)}}</h3>
-                                <h3 class="price">{{price($bestproduk->hargaJual)}}</h3>
                             </div>
+                            <h3 class="product-name">{{short_description($bestproduk->nama,35)}}</h3>
+                            <h3 class="price">{{price($bestproduk->hargaJual)}}</h3>
                         </a>
                     </li>
                     @endforeach
                 </ul>
-                <a href="{{url('produk')}}" class="link-more-news">View More</a>
+                <div class="link-more-news">
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
+                </div>
             </div>
-
+            @endif
+            @if(count(list_blog()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Lates News</h1>
@@ -79,15 +83,19 @@
                     <li>
                         <a href="{{blog_url($blog)}}">
                             <div class="best-selling">
-                                <h3>{{shortDescription($blog->judul,26)}}</h3>
+                                <h3>{{short_description($blog->judul,26)}}</h3>
                             </div>
                         </a>
-                        <p>{{shortDescription($blog->isi,134)}}<a href="{{blog_url($blog)}}" class="more-read">Read More</a></p>
+                        <p>
+                            {{short_description($blog->isi,134)}}
+                            <a href="{{blog_url($blog)}}" class="more-read">Read More</a>
+                        </p>
                         <span class="date">{{waktuTgl($blog->updated_at)}}</span>
                     </li>
                     @endforeach
                 </ul>
             </div>
+            @endif
 
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
@@ -104,13 +112,12 @@
                 <div class="single-page">
                     <h1>Testimoni</h1>
                     @foreach (list_testimonial() as $items)  
-                    <blockquote>
-                        <p class="quote"></p>
-                        <p>
-                            <h4>{{$items->nama}}</h4>
+                    <div class="quotes">
+                        <blockquote>
                             {{$items->isi}}
-                        </p>
-                    </blockquote>
+                        </blockquote>
+                        <p class="quote-person">~ {{$items->nama}} ~</p>
+                    </div>
                     @endforeach
                     <br>
                     <div class="row">

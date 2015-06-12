@@ -14,6 +14,7 @@
 				<input style="float:left;" type="text" class="form-control" placeholder="Kode Order" name='kodeorder' required>
 				<button type="submit" style="margin-left:10px;" class="btn btn-success"><span> Cari Kode</span></button>
 			{{Form::close()}}
+			<br><br>
 		</div>
 		<div class="col-xs-12 col-sm-4">
 			@foreach(vertical_banner() as $banners)

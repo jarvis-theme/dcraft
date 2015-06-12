@@ -34,6 +34,7 @@
                 @endforeach
                 </ul>
             </div>
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -52,10 +53,31 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
+            @endif
+            @if(count(list_koleksi()) > 0)
+            <div class="left-section">
+                <div class="header-left-section">
+                    <h1>Koleksi</h1>
+                </div>
+                @foreach (list_koleksi() as $kol)
+                <div class="side-collection">
+                    <div class="col-xs-4 col-sm-4">
+                        <a href="{{koleksi_url($kol)}}">
+                            {{ HTML::image(koleksi_image_url($kol->gambar,'thumb'),$kol->nama, array('class' => 'img-responsive','width'=>'80','height'=>'80' ))}}
+                        </a>
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+                        <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                @endforeach
+            </div>
         </div>
+        @endif
 
         <div class="col-sm-9">
             <form action="#" id="addorder">
@@ -96,11 +118,10 @@
                                 <h2>Deskripsi Produk</h2>
                                 <p>{{$produk->deskripsi}}</p>
                                 <div class="tab-quantity">
-                                    <h3>Quantity</h3><br>
-                                    <input type="number" name="qty" class="qty text" value="1" style="width:20%" />
-                                    <!-- <button type='submit' class='qtyminus' field='quantity' /><i class="fa fa-angle-left"></i></button>
-                                    <input type='text' name='qty' value='1' class='qty' />
-                                    <button type='button' value='+' class='qtyplus' field='quantity' /><i class="fa fa-angle-right"></i></button> -->
+                                    <h3>Quantity :</h3>
+                                    <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
+                                    <input type='text' name='qty' value='0' class='qty' />
+                                    <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                 </div>
                                 <div class="avalaible-text">
                                     @if($produk->stok > 0)
@@ -168,7 +189,11 @@
                                 <span class="related-caption-product fade-caption">
                                     <h3>{{short_description($relproduk->nama,12)}}</h3>
                                     <h2>{{price($relproduk->hargaJual)}}</h2>
-                                    <p>{{short_description($produk->deskripsi,26)}}</p>
+                                    <p>
+                                        <a href="{{product_url($relproduk)}}">
+                                            {{short_description($produk->deskripsi,26)}}
+                                        </a>
+                                    </p>
                                     <br>
                                     <a href="{{product_url($relproduk)}}" class="btn-chart">Lihat Produk</a>
                                 </span>

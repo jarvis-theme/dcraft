@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		{{ Theme::partial('seostuff') }} 
-		{{ Theme::partial('defaultcss') }}  
-		{{ Theme::asset()->styles() }} 
+		{{ Theme::partial('seostuff') }}	
+		{{ Theme::partial('defaultcss') }}	
+		{{ Theme::asset()->styles() }}	
 	</head>
 	<body>
 		<div id="header">
@@ -64,16 +64,16 @@
 
 		<div id="wrapper" class="single">
 			<div class="container">
-				{{ Theme::partial('header') }} 
+				{{ Theme::partial('header') }}	
 			</div>
 		</div>
 		<div class="bottom-texture"></div>
-		{{ Theme::place('content') }}  
-		{{ Theme::partial('footer') }} 
+		{{ Theme::place('content') }}	
+		{{ Theme::partial('footer') }}	
 
-		{{ Theme::partial('defaultjs') }}
-		{{ Theme::asset()->scripts() }}
-		{{ Theme::asset()->container('footer')->scripts() }}
-		{{ Theme::partial('analytic') }} 
+		{{ Theme::partial('defaultjs') }}	
+		{{ Theme::asset()->scripts() }}	
+		{{ Theme::asset()->container('footer')->scripts() }}	
+		{{ Theme::partial('analytic') }}	
 	</body>
 </html>

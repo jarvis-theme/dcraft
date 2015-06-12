@@ -34,7 +34,7 @@
                 @endforeach
                 </ul>
             </div>
-
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -53,16 +53,17 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
-
+            @endif
+            @if(count(list_blog()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Artikel Terbaru</h1>
                 </div>
                 <ul id="tab-lates-news">
-                    @foreach(list_blog(3,@$blog_category) as $blog)
+                    @foreach(list_blog(2,@$blog_category) as $blog)
                     <li>
                         <a href="{{blog_url($blog)}}">
                             <div class="best-selling">
@@ -75,6 +76,7 @@
                     @endforeach
                 </ul>
             </div>
+            @endif
 
             @if(count(vertical_banner()) > 0)
             @foreach(vertical_banner() as $banners)
@@ -91,6 +93,7 @@
         <div class="col-sm-9">
             <div class="product-categories">
                 <div class="row np">
+                @if(count(list_product(null, @$category)) > 0)
                     @foreach(list_product(null, @$category) as $produks)
                     <div class="col-sm-4">
                         <div class="product-categories-list">
@@ -109,10 +112,15 @@
                         </div>
                     </div>
                     @endforeach
+                @else
+                    <article style="font-style:italic; text-align:center;">
+                        <i>Produk tidak ditemukan</i>
+                    </article>
+                @endif
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-3">
+                <div class="col-sm-8">
                    {{list_product(null, @$category)->links()}}
                 </div>
             </div>

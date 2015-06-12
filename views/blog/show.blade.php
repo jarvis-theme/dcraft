@@ -6,11 +6,14 @@
                     <h1>Kategori</h1>
                 </div>
                 <ul id="side-category">
-                    @foreach(list_blog_category() as $kat)
+                @foreach(list_blog_category() as $kat)
+                    @if(!empty($kat->nama))
                     <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
-                    @endforeach
+                    @endif
+                @endforeach
                 </ul>
             </div>
+            @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
@@ -29,10 +32,11 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
                 </div>
             </div>
-
+            @endif
+            @if(count(list_blog()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
                     <h1>Artikel Terbaru</h1>
@@ -54,7 +58,7 @@
                     @endforeach
                 </ul>
             </div>
-
+            @endif
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
@@ -71,7 +75,9 @@
                             <h3>{{$detailblog->judul}}</h3>
                             <p>
                                 <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
+                                @if(!empty($detailblog->kategori->nama))
                                 <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
+                                @endif
                             </p>
                             <p>{{$detailblog->isi}}</p>
                         </article>
