@@ -12,7 +12,7 @@
 			@foreach(home_product() as $produk)
 			<div class="item">
 				<div class="product product-default bg-grey1">
-					{{HTML::image(product_image_url($produk->gambar1))}}
+					{{HTML::image(product_image_url($produk->gambar1,'medium'))}}
 					<div class="tab-title-default">
 						<h2>{{short_description($produk->nama,20)}}</h2>
 						<h3>{{price($produk->hargaJual)}}</h3>
@@ -43,7 +43,7 @@
 					@foreach(best_seller(4) as $bestproduk )
 					<div class="item2">
 						<div class="product product-default bg-grey5">
-							{{HTML::image(product_image_url($bestproduk->gambar1))}}
+							{{HTML::image(product_image_url($bestproduk->gambar1,'medium'))}}
 							<div class="tab-title-default">
 								<h2>{{short_description($bestproduk->nama,25)}}</h2>
 								<h3>{{price($bestproduk->hargaJual)}}</h3>

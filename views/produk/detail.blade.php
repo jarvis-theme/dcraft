@@ -84,26 +84,26 @@
                 <div class="detail-product">
                     <div class="row mp">
                         <div class="col-sm-6">
-                            <img id="imgZoom" src="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
+                            <img id="imgZoom" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}">
                             <div id="product_detail">
                                 @if($produk->gambar1 != '')
-                                <a href="{{product_image_url($produk->gambar1)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'medium')}}" width="100">
+                                <a href="{{product_image_url($produk->gambar1)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'thumb')}}" width="100">
                                 </a>
                                 @endif
                                 @if($produk->gambar2 != '')
-                                <a href="{{product_image_url($produk->gambar2)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar2)}}" data-zoom-image="{{product_image_url($produk->gambar2)}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'medium')}}" width="100">
+                                <a href="{{product_image_url($produk->gambar2)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar2,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar2,'large')}}">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'thumb')}}" width="100">
                                 </a>
                                 @endif
                                 @if($produk->gambar3 != '')
-                                <a href="{{product_image_url($produk->gambar3)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar3)}}" data-zoom-image="{{product_image_url($produk->gambar3)}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'medium')}}" width="100">
+                                <a href="{{product_image_url($produk->gambar3)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar3,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar3,'large')}}">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'thumb')}}" width="100">
                                 </a>
                                 @endif
                                 @if($produk->gambar4 != '')
-                                <a href="{{product_image_url($produk->gambar4)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar4)}}" data-zoom-image="{{product_image_url($produk->gambar4)}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'medium')}}" width="100">
+                                <a href="{{product_image_url($produk->gambar4)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar4,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar4,'large')}}">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'thumb')}}" width="100">
                                 </a>
                                 @endif
                             </div>
@@ -185,7 +185,7 @@
                         @foreach(other_product($produk,4) as $relproduk)
                         <div class="col-sm-3">
                             <div class="related-product">
-                                <img src="{{product_image_url($relproduk->gambar1)}}">
+                                <img src="{{product_image_url($relproduk->gambar1,'medium')}}">
                                 <span class="related-caption-product fade-caption">
                                     <h3>{{short_description($relproduk->nama,12)}}</h3>
                                     <h2>{{price($relproduk->hargaJual)}}</h2>

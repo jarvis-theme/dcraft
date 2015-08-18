@@ -97,7 +97,7 @@
                     @foreach(list_product(null, @$category) as $produks)
                     <div class="col-sm-4">
                         <div class="product-categories-list">
-                            {{HTML::image(product_image_url($produks->gambar1))}}
+                            {{HTML::image(product_image_url($produks->gambar1,'medium'))}}
                             <div class="tab-title">
                                 <h3 class="title">{{short_description($produks->nama,17)}}</h3>
                                 <h3 class="price">{{price($produks->hargaJual)}}</h3>
