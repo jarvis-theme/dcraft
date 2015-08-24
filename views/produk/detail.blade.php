@@ -120,7 +120,7 @@
                                 <div class="tab-quantity">
                                     <h3>Quantity :</h3>
                                     <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                    <input type='text' name='qty' value='0' class='qty' />
+                                    <input type='text' name='qty' value='1' class='qty' />
                                     <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                 </div>
                                 <div class="avalaible-text">
@@ -180,31 +180,27 @@
             </form>
             <div class="related-page">
                 <div class="row">
+                @if(count(other_product($produk,4)) > 0)
                     <h3 class="detail-title">Produk Lain</h3>
-                    @if(count(other_product($produk,4)) > 0)
-                        @foreach(other_product($produk,4) as $relproduk)
-                        <div class="col-sm-3">
-                            <div class="related-product">
-                                <img src="{{product_image_url($relproduk->gambar1,'medium')}}">
-                                <span class="related-caption-product fade-caption">
-                                    <h3>{{short_description($relproduk->nama,12)}}</h3>
-                                    <h2>{{price($relproduk->hargaJual)}}</h2>
-                                    <p>
-                                        <a href="{{product_url($relproduk)}}">
-                                            {{short_description($produk->deskripsi,26)}}
-                                        </a>
-                                    </p>
-                                    <br>
-                                    <a href="{{product_url($relproduk)}}" class="btn-chart">Lihat Produk</a>
-                                </span>
-                            </div>
+                    @foreach(other_product($produk,4) as $relproduk)
+                    <div class="col-sm-3">
+                        <div class="related-product">
+                            <img src="{{product_image_url($relproduk->gambar1,'medium')}}">
+                            <span class="related-caption-product fade-caption">
+                                <h3>{{short_description($relproduk->nama,12)}}</h3>
+                                <h2>{{price($relproduk->hargaJual)}}</h2>
+                                <p>
+                                    <a href="{{product_url($relproduk)}}">
+                                        {{short_description($produk->deskripsi,26)}}
+                                    </a>
+                                </p>
+                                <br>
+                                <a href="{{product_url($relproduk)}}" class="btn-chart">Lihat Produk</a>
+                            </span>
                         </div>
-                        @endforeach
-                    @else
-                    <article class="text-center">
-                        <i>Produk tidak ditemukan</i>
-                    </article>
-                    @endif
+                    </div>
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>

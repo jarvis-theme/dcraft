@@ -68,40 +68,38 @@
             @endforeach
         </div>
         <div class="col-sm-9">
-            <div class="single-page">
-                <div class="single-page">
-                    <div class="row">
-                        <article class="col-lg-12" style="margin-bottom:10px">
-                            <h3>{{$detailblog->judul}}</h3>
-                            <p>
-                                <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
-                                @if(!empty($detailblog->kategori->nama))
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
-                                @endif
-                            </p>
-                            <p>{{$detailblog->isi}}</p>
-                        </article>
+            <div class="single-page" style="background-color:#fff">
+                <div class="row">
+                    <article class="col-lg-12" style="margin-bottom:10px">
+                        <h3>{{$detailblog->judul}}</h3>
+                        <p>
+                            <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
+                            @if(!empty($detailblog->kategori->nama))
+                            <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
+                            @endif
+                        </p>
+                        <p>{{$detailblog->isi}}</p>
+                    </article>
+                </div>
+                <hr>
+                <div class="navigate comments clearfix">
+                    @if(isset($prev))
+                    <div class="pull-left"><a href="{{$prev->slug}}">&larr; Sebelumnya</a></div>
+                    @else
+                    <div class="pull-right"></div>
+                    @endif
+                    @if(isset($next))
+                    <div class="pull-right">
+                        <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
                     </div>
-                    <hr>
-                    <div class="navigate comments clearfix">
-                        @if(isset($prev))
-                        <div class="pull-left"><a href="{{$prev->slug}}">&larr; Sebelumnya</a></div>
-                        @else
-                        <div class="pull-right"></div>
-                        @endif
-                        @if(isset($next))
-                        <div class="pull-right">
-                            <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
-                        </div>
-                        @else
-                        <div class="pull-right"></div>
-                        @endif
-                    </div>
-                    <hr>
-                    <div>
-                        {{$fbscript}}
-                        {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}}
-                    </div>
+                    @else
+                    <div class="pull-right"></div>
+                    @endif
+                </div>
+                <hr>
+                <div>
+                    {{$fbscript}}
+                    {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}}
                 </div>
             </div>
         </div>

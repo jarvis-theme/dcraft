@@ -1,6 +1,6 @@
 <div class="container" style="margin-bottom:50px;" >
-	<div class="row mp">
-	    <div class="col-sm-6 col-sm-offset-1">
+	<div class="row mp" style="background-color: #fff;border-radius: 10px;">
+	    <div class="col-sm-6 col-sm-offset-3">
 		    {{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
 		    	<br>
 				<h2>Register</h2>

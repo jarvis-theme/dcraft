@@ -1,9 +1,3 @@
-@if(Session::has('success'))
-<div class="success" id='message' style='display:none'>
-	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>					
-</div>		
-@endif
-
 <div class="page-title">
 	<div class="container confirOrder">
 		<h2 class="title"><i class="fa fa-shopping-cart"></i> Detail Order</h2>
@@ -149,6 +143,7 @@
 				<button type="submit" class="btn btn-success">Konfirmasi Order</button>
 				{{Form::close()}}
 			@endif
+			<br>
 			</div>
 		</div>
 

@@ -1,12 +1,3 @@
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="banner-top">
-                <h1>Blog</h1>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="container" style="margin-top:-50px;">
     <div class="row mp">
         <div class="col-xs-12 col-sm-4 col-md-3">
@@ -57,37 +48,35 @@
         </div>
         <div class="col-xs-12 col-sm-8 col-m-9">
             <div class="single-page">
-                <div class="single-page">
-                    @if(count(list_blog(null,@$blog_category)) > 0)
-                    <div class="row">
-                        @foreach(list_blog(null,@$blog_category) as $blogs)
-                        <article class="col-lg-12" style="margin-bottom:10px">
-                            <a href="{{blog_url($blogs)}}"><h3>{{$blogs->judul}}</h3></a>
-                            <p>
-                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
-                                @if(!empty($blogs->kategori->nama))
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
-                                @endif
-                            </p>
-                            <p>
-                                {{shortDescription($blogs->isi,300)}}<br>
-                                <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
-                            </p>
-                            <hr>
-                        </article>
-                        @endforeach
-                    </div>
-                    <div class="pagination">
-                        {{list_blog(null,@$blog_category)->links()}}
-                    </div>
-                    @else
-                    <div class="row">
-                        <article class="not-found">
-                            <h2><small>Blog tidak ditemukan.</small></h2>
-                        </article>
-                    </div>
-                    @endif
+                @if(count(list_blog(null,@$blog_category)) > 0)
+                <div class="row">
+                    @foreach(list_blog(null,@$blog_category) as $blogs)
+                    <article class="col-lg-12" style="margin-bottom:10px;background-color:#fff">
+                        <a href="{{blog_url($blogs)}}"><h3>{{$blogs->judul}}</h3></a>
+                        <p>
+                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                            @if(!empty($blogs->kategori->nama))
+                            <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
+                            @endif
+                        </p>
+                        <p>
+                            {{shortDescription($blogs->isi,300)}}<br>
+                            <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
+                        </p>
+                        <br>
+                    </article>
+                    @endforeach
                 </div>
+                <div class="pagination">
+                    {{list_blog(null,@$blog_category)->links()}}
+                </div>
+                @else
+                <div class="row">
+                    <article class="not-found">
+                        <h2><small>Blog tidak ditemukan.</small></h2>
+                    </article>
+                </div>
+                @endif
             </div>
         </div>
     </div>

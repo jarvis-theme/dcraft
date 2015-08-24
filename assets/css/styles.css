@@ -8,7 +8,6 @@ a {
   a:link {
     text-decoration: none; }
     
-
 img {
   max-width: 100%;
   border: none;
@@ -58,7 +57,8 @@ li {
   margin-top: 12px; }
 
 #img-thumbnail {
-  width: 32%;
+  /*width: 32%;*/
+  width: 23%;
   padding-bottom: 5px;
 }
 
@@ -891,7 +891,7 @@ body {
   overflow: hidden;
   width: 100%;
   margin: -50px 10px 0; }
-  .product-other .tab-title {
+  .product-other .tab-title, .tab-title2 {
     width: 100%;
     overflow: hidden;
     background: #75b628;
@@ -1008,7 +1008,7 @@ body {
   width: 100%;
   overflow: hidden;
   background: #fff;
-  margin: 77px 19px 30px;
+  margin: 25px 19px 30px;
   -webkit-box-shadow: 0px 3px 5px 0px #adabad;
   -moz-box-shadow: 0px 3px 5px 0px #adabad;
   box-shadow: 0px 3px 5px 0px #adabad; }
@@ -2121,6 +2121,7 @@ ul.navigation li a{
 }
 .confirOrder{
   padding: 0px 50px;
+  background-color: #fff;
 }
 .confirOrder h2.title{
   color: #5a9a0f;
@@ -2329,3 +2330,4 @@ div.footer-support div.description > blockquote {
 .respond { margin-top: 50px;padding-left: 0px; }
 .quote-person {margin-left: 30px;}
 .side-collection { margin: 10px 0; }
+.sidey{margin-top: 75px;}

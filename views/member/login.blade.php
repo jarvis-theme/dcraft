@@ -1,5 +1,6 @@
 <div class="container" style="margin-top:50px;margin-bottom:50px;" >
-	<div class="row mp">
+	<div class="row mp" style="background-color: #fff;border-radius: 10px;">
+		<br>
 	    <div class="col-sm-3">
 	    </div>
 	    <div class="col-sm-6">

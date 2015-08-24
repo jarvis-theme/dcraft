@@ -1,33 +1,34 @@
-<!-- `<div class="container">
-	<div class="row no-rutter">
-		<div id="product-category">
-			
-		</div>
-	</div>
-</div> -->
-
-<div class="container">
-	<div class="row mp no-rutter">
-		<div class="product-full wow fadeInUp">
-			@foreach(home_product() as $produk)
-			<div class="item">
-				<div class="product product-default bg-grey1">
-					{{HTML::image(product_image_url($produk->gambar1,'medium'))}}
-					<div class="tab-title-default">
-						<h2>{{short_description($produk->nama,20)}}</h2>
-						<h3>{{price($produk->hargaJual)}}</h3>
-					</div>
-					<span class="caption-product-default fade-caption">
-				        <a href="{{product_url($produk)}}"><h3>{{short_description($produk->nama,20)}}</h3></a>
-				        <h2>{{price($produk->hargaJual)}}</h2>
-				        <div class="tab-rating">
-				        </div>
-				        <p>{{short_description($produk->deskripsi,134)}}</p>
-				        <a href="{{product_url($produk)}}" class="btn-chart">Lihat Produk</a>
-			        </span>
+<div class="container container-cstm">
+	<div class="row no-rutter mb">
+		<div class="product-other" style="margin-bottom:20px">
+			<div class="col-sm-12">
+				<div class="tab-title">
+					<h1><i class="fa fa-bookmark" style="font-size:1.5em; float:left;margin-bottom:15px;"></i></h1>
+					<h1 style="margin-top:23px">&nbsp;&nbsp;Koleksi Produk</h1>
 				</div>
+				<div class="product-lates wow fadeInUp">
+					@foreach(home_product() as $home1 )
+					<div class="item2">
+						<div class="product product-default bg-grey5">
+							{{HTML::image(product_image_url($home1->gambar1,'medium'))}}
+							<div class="tab-title-default">
+								<h2>{{short_description($home1->nama,25)}}</h2>
+								<h3>{{price($home1->hargaJual)}}</h3>
+							</div>
+							<span class="caption-product-related fade-caption">
+								<a href="#"><h3>{{short_description($home1->nama,25)}}</h3></a>
+								<h2>{{price($home1->hargaJual)}}</h2>
+								<div class="tab-rating">
+								</div>
+								<p>{{short_description($home1->deskripsi,134)}}</p>
+								<a href="{{product_url($home1)}}" class="btn-chart">Lihat Produk</a>
+							</span>
+						</div>
+					</div>	
+					@endforeach
+				</div>
+				<br><br>
 			</div>
-			@endforeach  
 		</div>
 	</div>
 </div>
