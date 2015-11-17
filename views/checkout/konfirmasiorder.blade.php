@@ -17,28 +17,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>
-						@if($checkouttype==1)
-							{{prefixOrder().$order->kodeOrder}}
-						@else
-							{{prefixOrder().$order->kodePreorder}}
-						@endif
-						</td>
-						<td>
-						@if($checkouttype==1)
-							{{waktu($order->tanggalOrder)}}
-						@else
-							{{waktu($order->tanggalPreorder)}}
-						@endif
-						</td>
+						<td>{{$checkouttype==1 ? prefixOrder().$order->kodeOrder : prefixOrder().$order->kodePreorder}}</td>
+						<td>{{$checkouttype==1 ? waktu($order->tanggalOrder) : waktu($order->tanggalPreorder)}}</td>
 						<td>
 							<ul>
 							@if ($checkouttype==1)
 								@foreach ($order->detailorder as $detail)
-								<li style="margin-left: 8px">{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku->opsi1.($detail->opsisku->opsi2 != '' ? ' / '.$detail->opsisku->opsi2:'').($detail->opsisku->opsi3 !='' ? ' / '.$detail->opsisku->opsi3:'').')':''}} - {{$detail->qty}}</li>
+								<li class="detail-order">{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku->opsi1.($detail->opsisku->opsi2 != '' ? ' / '.$detail->opsisku->opsi2:'').($detail->opsisku->opsi3 !='' ? ' / '.$detail->opsisku->opsi3:'').')':''}} - {{$detail->qty}}</li>
 								@endforeach
 							@else
-								<li style="margin-left: 8px">{{$order->preorderdata->produk->nama}} ({{$order->opsiSkuId==0 ? 'No Opsi' : $order->opsisku->opsi1.($order->opsisku->opsi2!='' ? ' / '.$order->opsisku->opsi2:'').($order->opsisku->opsi3!='' ? ' / '.$order->opsisku->opsi3:'')}})
+								<li class="detail-order">{{$order->preorderdata->produk->nama}} ({{$order->opsiSkuId==0 ? 'No Opsi' : $order->opsisku->opsi1.($order->opsisku->opsi2!='' ? ' / '.$order->opsisku->opsi2:'').($order->opsisku->opsi3!='' ? ' / '.$order->opsisku->opsi3:'')}})
 								 - {{$order->jumlah}}</li>
 							@endif
 							</ul>
@@ -60,9 +48,7 @@
 						<td class="quantity">
 							{{($order->status==2 || $order->status==3) ? price(0) : ' - '.price($order->total)}}
 						</td>
-						<td class="sub-price">
-							{{ $order->noResi}}
-						</td>
+						<td class="sub-price">{{ $order->noResi}}</td>
 						<td class="total-price">
 						@if($checkouttype==1)
 							@if($order->status==0)
@@ -104,11 +90,11 @@
 			<div class="col-md-5">
 			@if($order->jenisPembayaran==1)
 				@if($checkouttype==1)                         
-				{{Form::open(array('url'=> 'konfirmasiorder/'.$order->id, 'method'=>'put'))}}                            
-				
+				{{-- */ $url = 'konfirmasiorder/' /* --}}
 				@else                         
-				{{Form::open(array('url'=> 'konfirmasipreorder/'.$order->id, 'method'=>'put'))}}                           
+				{{-- */ $url = 'konfirmasipreorder/' /* --}}
 				@endif
+				{{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}}                           
 				<div class="form-group">
 					<label  class="control-label"> Nama Pengirim:</label>
 					<input type="text" class="form-control" id="search" placeholder="Nama Pengirim" name='nama' required>
@@ -119,7 +105,7 @@
 				</div>
 				<div class="form-group">
 					<label  class="control-label"> Rekening Tujuan:</label>
-					<select name='bank' class="form-control">
+					<select name="bank" class="form-control">
 						<option value=''>-- Pilih Bank Tujuan --</option>
 						@foreach ($banktrans as $bank)
 						<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
@@ -129,13 +115,13 @@
 				<div class="form-group">
 					<label  class="control-label"> Jumlah:</label>
 					@if($checkouttype==1)        
-					<input type="text" class="form-control" id="search" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->total}}' required>
+					<input type="text" class="form-control" id="search" placeholder="jumlah yg terbayar" name="jumlah" value="{{$order->total}}" required>
 					@else
 						@if($order->status < 2)
-						<input class="form-control" id="search" placeholder="jumlah yg terbayar" type="text" name='jumlah' value='{{$order->dp}}' required>
+						<input class="form-control" id="search" placeholder="jumlah yg terbayar" type="text" name="jumlah" value="{{$order->dp}}" required>
 
 						@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-						<input class="form-control" id="search" placeholder="jumlah yg terbayar" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+						<input class="form-control" id="search" placeholder="jumlah yg terbayar" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
 						@endif
 					@endif
 				  
@@ -180,10 +166,17 @@
 		@endif 
 	  
 		@if($order->jenisPembayaran==2)
-			<h3><center>Konfirmasi Pemabayaran Via Paypal</center></h3><br>
+			<h3><center>Konfirmasi Pembayaran Via Paypal</center></h3><br>
 			<p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
 			{{$paypalbutton}}
 			<br>
+		@elseif($order->jenisPembayaran==6)
+            @if($order->status == 0)
+            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+            <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+            {{$bitcoinbutton}}
+            <br>
+            @endif
 		@endif
    </div>
 </div>

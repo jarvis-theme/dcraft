@@ -1,16 +1,16 @@
 <div class="container container-cstm">
 	<div class="row no-rutter mb">
-		<div class="product-other" style="margin-bottom:20px">
+		<div class="product-other" id="homes">
 			<div class="col-sm-12">
 				<div class="tab-title">
-					<h1><i class="fa fa-bookmark" style="font-size:1.5em; float:left;margin-bottom:15px;"></i></h1>
-					<h1 style="margin-top:23px">&nbsp;&nbsp;Koleksi Produk</h1>
+					<h1><i class="fa fa-bookmark" id="homecollection"></i></h1>
+					<h1 id="textcollection">&nbsp;&nbsp;Koleksi Produk</h1>
 				</div>
-				<div class="product-lates wow fadeInUp">
+				<div class="product-full wow fadeInUp">
 					@foreach(home_product() as $home1 )
-					<div class="item2">
+					<div class="item1">
 						<div class="product product-default bg-grey5">
-							{{HTML::image(product_image_url($home1->gambar1,'medium'))}}
+							{{HTML::image(product_image_url($home1->gambar1,'medium'), $home1->nama)}}
 							<div class="tab-title-default">
 								<h2>{{short_description($home1->nama,25)}}</h2>
 								<h3>{{price($home1->hargaJual)}}</h3>
@@ -38,13 +38,13 @@
 		<div class="product-other ">
 			<div class="col-sm-8">
 				<div class="tab-title">
-					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title"> Best seller</h1>
+					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title"> Produk Terlaris</h1>
 				</div>
 				<div class="product-lates wow fadeInUp">
 					@foreach(best_seller(4) as $bestproduk )
 					<div class="item2">
 						<div class="product product-default bg-grey5">
-							{{HTML::image(product_image_url($bestproduk->gambar1,'medium'))}}
+							{{HTML::image(product_image_url($bestproduk->gambar1,'medium'), $bestproduk->nama)}}
 							<div class="tab-title-default">
 								<h2>{{short_description($bestproduk->nama,25)}}</h2>
 								<h3>{{price($bestproduk->hargaJual)}}</h3>
@@ -74,14 +74,12 @@
 						<li>
 							<h1><a href="{{blog_url($blog)}}">{{$blog->judul}}</a></h1>
 							<p>{{short_description($blog->isi,134)}}</p>
-							<a href="{{blog_url($blog)}}" class="read-more-news">Read More</a>
+							<a href="{{blog_url($blog)}}" class="read-more-news">Selengkapnya</a>
 							<div class="clearfix"></div>
 						</li>
 						@endforeach
 	                @else
-		                <article style="font-style:italic; text-align:center;">
-		                	<small>Tidak ada data.</small>
-		                </article>
+		                <article class="noresult"><small>Tidak ada data.</small></article>
 	                @endif
 					</ul>
 				</div>

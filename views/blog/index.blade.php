@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:-50px;">
+<div class="container blogs">
     <div class="row mp">
         <div class="col-xs-12 col-sm-4 col-md-3">
            <div class="navigation-left">
@@ -8,7 +8,7 @@
                 <ul id="side-category">
                 @foreach(list_blog_category() as $kat)
                     @if(!empty($kat->nama)) 
-                    <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
+                    <span class="underline"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
                     @endif
                 @endforeach
                 </ul>
@@ -23,7 +23,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="best-selling">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama)}}
                             </div>
                             <h3 class="product-name">{{short_description($bestproduk->nama,50)}}</h3>
                             <h3 class="price">{{price($bestproduk->hargaJual)}}</h3>
@@ -32,14 +32,14 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">Lihat Semua</a>
                 </div>
             </div>
             @endif
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -51,10 +51,10 @@
                 @if(count(list_blog(null,@$blog_category)) > 0)
                 <div class="row">
                     @foreach(list_blog(null,@$blog_category) as $blogs)
-                    <article class="col-lg-12" style="margin-bottom:10px;background-color:#fff">
+                    <article class="col-lg-12" id="articleblog">
                         <a href="{{blog_url($blogs)}}"><h3>{{$blogs->judul}}</h3></a>
                         <p>
-                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->created_at)}}</small>&nbsp;&nbsp;
                             @if(!empty($blogs->kategori->nama))
                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
                             @endif

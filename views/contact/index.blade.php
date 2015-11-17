@@ -1,17 +1,17 @@
-<div class="container" style="margin-top:-50px;">
+<div class="container blogs">
     <div class="row mp">
         <div class="col-sm-3">
             @if(count(best_seller()) > 0)
-            <div class="left-section" style="margin-top: 77px">
+            <div class="left-section" id="bestcontact">
                 <div class="header-left-section">
                     <h1>Produk Terlaris</h1>
                 </div>
                 <ul id="tab-best-selling">
-                    @foreach(best_seller(3) as $bestproduk )
+                    @foreach(best_seller(3) as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="best-selling">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama)}}
                             </div>
                             <h3 class="product-name">{{short_description($bestproduk->nama,50)}}</h3>
                             <h3 class="price">{{price($bestproduk->hargaJual)}}</h3>
@@ -20,7 +20,7 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">Lihat Semua</a>
                 </div>
             </div>
             @endif
@@ -28,7 +28,7 @@
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -49,25 +49,25 @@
                         </a>
                         <p>
                             {{short_description($blog->isi,134)}}
-                            <a href="{{blog_url($blog)}}" class="more-read">Read More</a>
+                            <a href="{{blog_url($blog)}}" class="more-read">Selengkapnya</a>
                         </p>
-                        <span class="date">{{waktuTgl($blog->updated_at)}}</span>
+                        <span class="date">{{waktuTgl($blog->created_at)}}</span>
                     </li>
                     @endforeach
                 </ul>
             </div>
             @endif
         </div>
-        <div class="col-sm-9"  style="padding-top:25px;">
+        <div class="col-sm-9" id="maplocation">
             <div class="single-page">
                 <!-- <h1>Kontak</h1> -->
-                <div class="col-md-12 col-xs-12" style="margin-bottom:30px;">         
+                <div class="col-md-12 col-xs-12" id="mapdetail">
                     <div class="maps" >
                         <h2 class="title">Peta Lokasi</h2>
                         @if($kontak->lat!='0' || $kontak->lng!='0')
-                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                        <iframe class="locate" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                         @else
-                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                        <iframe class="locate" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{str_replace(' ','+',$kontak->alamat)}}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{str_replace(' ','+',$kontak->alamat)}}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
                         @endif
                     </div>
                 </div>
@@ -93,18 +93,19 @@
                             <div class="clr"></div>
                         </div>
                         <br><br>
-                        <div class="col-xs-12 col-sm-7" style="padding-left: 0px;">
+                        <div class="col-xs-12 col-sm-7 zeropadleft">
+                            <h2>Hubungi Kami</h2>
                             <form class="contact-form" action="{{url('kontak')}}" method="post">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Name" name="namaKontak" type="text" required>
+                                    <input class="form-control" placeholder="Nama" name="namaKontak" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Email Address" name="emailKontak" type="text" required>
+                                    <input class="form-control" placeholder="Email Anda" name="emailKontak" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Message" name="messageKontak" rows="4" required></textarea>
+                                    <textarea class="form-control" placeholder="Pesan" name="messageKontak" rows="4" required></textarea>
                                 </div>
-                                <button class="btn btn-success submitnewletter" type="submit">Send</button>
+                                <button class="btn btn-success submitnewletter" type="submit">Kirim Pesan</button>
                             </form>
                         </div>
                     </div>

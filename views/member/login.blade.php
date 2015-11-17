@@ -1,19 +1,17 @@
-<div class="container" style="margin-top:50px;margin-bottom:50px;" >
-	<div class="row mp" style="background-color: #fff;border-radius: 10px;">
+<div class="container confirm">
+	<div class="row mp" id="logins">
 		<br>
-	    <div class="col-sm-3">
-	    </div>
+	    <div class="col-sm-3"></div>
 	    <div class="col-sm-6">
 			<p>Silahkan Login untuk kemudahan melakukan checkout. Cepat dan Mudah dalam bertransaksi. Mudah untuk mengetahui Order History dan Status.</p>
 			<br>
 			<h2>Log in</h2>
-			<hr>
-			<br>
+			<hr><br>
 	        <form class="form-horizontal" action="{{url('member/login')}}" method="post">
 				<div class="form-group">
 			    	<label for="inputEmail3" class="col-sm-2">Email</label>
 			    	<div class="col-sm-6">
-			    		<input type="email" class="form-control" name="email" placeholder="Email" required>
+			    		<input type="email" class="form-control" name="email" placeholder="Email" value="{{Input::old('email')}}" required>
 			    	</div>
 				</div>
 				<div class="form-group">

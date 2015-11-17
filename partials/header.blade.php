@@ -14,9 +14,9 @@
                 @endif
             {{--*/ $i += 1 /*--}}
             @endforeach
-				<li style="float:right;">
-					<form action="{{url('search')}}" method="post" class="form-search ">
-						<input type="text" placeholder="Search" name="search" class="input-text" required>
+				<li class="pull-right">
+					<form action="{{url('search')}}" method="post" class="form-search">
+						<input type="text" placeholder="Cari" name="search" class="input-text" required>
 						<button class="btn-search"><i class="fa fa-search"></i></button>
 					</form>
 				</li>

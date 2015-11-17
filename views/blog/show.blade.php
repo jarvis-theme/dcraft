@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:-50px;">
+<div class="container blogs">
     <div class="row mp">
         <div class="col-sm-3">
            <div class="navigation-left">
@@ -8,7 +8,7 @@
                 <ul id="side-category">
                 @foreach(list_blog_category() as $kat)
                     @if(!empty($kat->nama))
-                    <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
+                    <span class="underline"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
                     @endif
                 @endforeach
                 </ul>
@@ -19,11 +19,11 @@
                     <h1>Produk Terlaris</h1>
                 </div>
                 <ul id="tab-best-selling">
-                    @foreach(best_seller(3) as $bestproduk )
+                    @foreach(best_seller(3) as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="best-selling">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama)}}
                             </div>
                             <h3 class="product-name">{{short_description($bestproduk->nama,25)}}</h3>
                             <h3 class="price">{{price($bestproduk->hargaJual)}}</h3>
@@ -32,7 +32,7 @@
                     @endforeach
                 </ul>
                 <div class="link-more-news">
-                    <a href="{{url('produk')}}" class="btn btn-success">View More</a>
+                    <a href="{{url('produk')}}" class="btn btn-success">Lihat Semua</a>
                 </div>
             </div>
             @endif
@@ -51,9 +51,9 @@
                         </a>
                         <p>
                             {{shortDescription($blogs->isi,50)}}
-                            <a href="{{blog_url($blogs)}}" class="more-read">Read More</a>
+                            <a href="{{blog_url($blogs)}}" class="more-read">Baca Selengkapnya →</a>
                         </p>
-                        <span class="date">{{waktuTgl($blogs->updated_at)}}</span>
+                        <span class="date">{{waktuTgl($blogs->created_at)}}</span>
                     </li>
                     @endforeach
                 </ul>
@@ -62,15 +62,15 @@
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
         </div>
         <div class="col-sm-9">
-            <div class="single-page" style="background-color:#fff">
+            <div class="single-page backwhite">
                 <div class="row">
-                    <article class="col-lg-12" style="margin-bottom:10px">
+                    <article class="col-lg-12 detailblog">
                         <h3>{{$detailblog->judul}}</h3>
                         <p>
                             <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
@@ -90,7 +90,7 @@
                     @endif
                     @if(isset($next))
                     <div class="pull-right">
-                        <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
+                        <a class="pull-right" href="{{$next->slug}}">Selanjutnya &rarr;</a>
                     </div>
                     @else
                     <div class="pull-right"></div>
