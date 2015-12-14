@@ -1,6 +1,6 @@
 <div class="container blogs">
     <div class="row mp">
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -79,7 +79,7 @@
         </div>
         @endif
 
-        <div class="col-sm-9">
+        <div class="col-sm-8 col-md-9">
             <form action="#" id="addorder">
                 <div class="detail-product">
                     <div class="row mp">
@@ -88,22 +88,22 @@
                             <div id="product_detail">
                                 @if($produk->gambar1 != '')
                                 <a href="{{product_image_url($produk->gambar1,'medium')}}" class="elevatezoom-gallery thumbnail-img" data-image="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'thumb')}}" width="100">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'thumb')}}" width="100" alt="Gambar 1">
                                 </a>
                                 @endif
                                 @if($produk->gambar2 != '')
                                 <a href="{{product_image_url($produk->gambar2,'medium')}}" class="elevatezoom-gallery thumbnail-img" data-image="{{product_image_url($produk->gambar2,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar2,'large')}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'thumb')}}" width="100">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'thumb')}}" width="100" alt="Gambar 2">
                                 </a>
                                 @endif
                                 @if($produk->gambar3 != '')
                                 <a href="{{product_image_url($produk->gambar3,'medium')}}" class="elevatezoom-gallery thumbnail-img" data-image="{{product_image_url($produk->gambar3,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar3,'large')}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'thumb')}}" width="100">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'thumb')}}" width="100" alt="Gambar 3">
                                 </a>
                                 @endif
                                 @if($produk->gambar4 != '')
                                 <a href="{{product_image_url($produk->gambar4,'medium')}}" class="elevatezoom-gallery thumbnail-img" data-image="{{product_image_url($produk->gambar4,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar4,'large')}}">
-                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'thumb')}}" width="100">
+                                    <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'thumb')}}" width="100" alt="Gambar 4">
                                 </a>
                                 @endif
                             </div>
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="checkout">
-                    <div class="col-xs-12 col-sm-3">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
                         <button class="addtocart btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Add to cart</button>
                     </div>
                 </div>
@@ -166,9 +166,9 @@
                 @if(count(other_product($produk,4)) > 0)
                     <h3 class="detail-title">Produk Lain</h3>
                     @foreach(other_product($produk,4) as $relproduk)
-                    <div class="col-sm-3">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="related-product">
-                            <img src="{{product_image_url($relproduk->gambar1,'medium')}}">
+                            <img src="{{product_image_url($relproduk->gambar1,'medium')}}" alt="{{$relproduk->nama}}">
                             <span class="related-caption-product fade-caption">
                                 <h3>{{short_description($relproduk->nama,12)}}</h3>
                                 <h2>{{price($relproduk->hargaJual)}}</h2>

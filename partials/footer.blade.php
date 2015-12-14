@@ -109,7 +109,7 @@
 
                 <div class="footer-bottom">
                     <div class="row">
-                        <div class="col-xs-12" style="text-align:center">
+                        <div class="col-xs-12 center">
                             @if(!empty($bank))
                                 @foreach(list_banks() as $value)
                                 <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="Payment">
@@ -121,6 +121,9 @@
                                 @endif
                                 @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
                                 <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                                @endif
+                                @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                                <img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" />
                                 @endif
                             @endforeach
                             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)

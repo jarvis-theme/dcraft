@@ -19,4 +19,3 @@
 	<meta property="og:description"   content="{{$description}}" />
 	<meta property="og:image"         content="{{@$img!='' ? product_image_url($img):''}}" />
 	<link rel="canonical" href="{{URL::full()}}">
-	<link rel="dcraft-theme" href="{{dirTemaToko()}}dcarft/">

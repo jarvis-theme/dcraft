@@ -1,6 +1,6 @@
 <div class="container blogs">
     <div class="row mp">
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -90,14 +90,14 @@
 
             {{ Theme::partial('subscribe') }}            
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8 col-md-9">
             <div class="product-categories">
                 <div class="row np">
                 @if(count(list_product(null, @$category, @$collection)) > 0)
                     @foreach(list_product(null, @$category, @$collection) as $produks)
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-4">
                         <div class="product-categories-list">
-                            {{HTML::image(product_image_url($produks->gambar1,'medium'))}}
+                            {{HTML::image(product_image_url($produks->gambar1,'medium'), $produks->nama)}}
                             <div class="tab-title">
                                 <h3 class="title">{{short_description($produks->nama,17)}}</h3>
                                 <h3 class="price">{{price($produks->hargaJual)}}</h3>

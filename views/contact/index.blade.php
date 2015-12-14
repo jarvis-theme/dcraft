@@ -1,6 +1,6 @@
 <div class="container blogs">
     <div class="row mp">
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
             @if(count(best_seller()) > 0)
             <div class="left-section" id="bestcontact">
                 <div class="header-left-section">
@@ -58,7 +58,7 @@
             </div>
             @endif
         </div>
-        <div class="col-sm-9" id="maplocation">
+        <div class="col-sm-8 col-md-9" id="maplocation">
             <div class="single-page">
                 <!-- <h1>Kontak</h1> -->
                 <div class="col-md-12 col-xs-12" id="mapdetail">

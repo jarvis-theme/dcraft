@@ -38,7 +38,7 @@
 		<div class="product-other ">
 			<div class="col-sm-8">
 				<div class="tab-title">
-					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title"> Produk Terlaris</h1>
+					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title" alt="best seller"> Produk Terlaris</h1>
 				</div>
 				<div class="product-lates wow fadeInUp">
 					@foreach(best_seller(4) as $bestproduk )
@@ -65,7 +65,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="tab-title">
-					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/hn-icon.png')}}" class="icon-title"> Artikel</h1>
+					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/hn-icon.png')}}" class="icon-title" alt="news"> Artikel</h1>
 				</div>
 				<div class="hot-news wow fadeInUp">
 					<ul>

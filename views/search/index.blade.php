@@ -1,6 +1,6 @@
 <div class="container blogs">
     <div class="row mp">
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -86,13 +86,13 @@
             </div>
             @endforeach
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8 col-md-9">
             <div class="product-categories">
                 @if($jumlahCari != 0)
                     @if(count($hasilpro) > 0)
                     <div class="row np">
                         @foreach($hasilpro as $produks)
-                        <div class="col-sm-4">
+                        <div class="col-sm-6 col-md-4">
                             <div class="product-categories-list">
                                 {{HTML::image(product_image_url($produks->gambar1,'medium'), $produks->nama)}}
                                 <div class="tab-title">

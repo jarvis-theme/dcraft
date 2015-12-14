@@ -1,6 +1,6 @@
 <div class="container blogs">
     <div class="row mp">
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
            <div class="navigation-left">
                 <div class="header-left-section title-category">
                     <h1>Kategori</h1>
@@ -67,7 +67,7 @@
             </div>
             @endforeach
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8 col-md-9">
             <div class="single-page backwhite">
                 <div class="row">
                     <article class="col-lg-12 detailblog">
