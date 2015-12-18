@@ -157,7 +157,7 @@
 
                 <div class="checkout">
                     <div class="col-xs-12 col-sm-6 col-md-3">
-                        <button class="addtocart btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Add to cart</button>
+                        <button class="addtocart btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Beli</button>
                     </div>
                 </div>
             </form>

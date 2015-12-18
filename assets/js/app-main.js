@@ -3,7 +3,7 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 require.config({
 	baseUrl: '/',
     urlArgs: "v=003",
-	waitSeconds: 30,
+	waitSeconds: 60,
 	shim: {
 		'cart' : {
 			deps : ['jquery','noty']

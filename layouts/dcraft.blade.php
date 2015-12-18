@@ -52,7 +52,9 @@
 										Login <i class="btn-circle fa fa-angle-down"></i>
 									</a>
 								</li>
-								{{shopping_cart()}}
+								<li class="open-shop" id="shoppingcartplace">
+									{{shopping_cart()}}
+								</li>
 							</ul>
 							@endif	
 						</div>

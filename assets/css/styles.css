@@ -326,7 +326,7 @@ body {
           left: 50%;
           margin: -15px 0 0 -10px;
           position: absolute;
-          top: 113% }
+          top: 118% }
   @media screen and (max-width: 60em) {
     #menus ul {
       display: none }
@@ -2257,6 +2257,7 @@ margin: 0 10px;
 .fb-share-button {
   margin-left: 15px !important;
   width: 55px !important;
+  top: 0px !important
 }
 #fbcomments, .fb_iframe_widget, 
 .fb_iframe_widget[style],
@@ -2373,4 +2374,9 @@ div.footer-support div.description > blockquote {
 .center{text-align: center}
 @media screen and (min-width: 260px) and (max-width: 381px){
   #header ul#parent-option .open-shop{float: right;}
+}
+@media screen and (min-width: 960px) and (max-width: 991px){
+  #menus ul > li > a:hover:before {
+    border-bottom: transparent;
+  }
 }
