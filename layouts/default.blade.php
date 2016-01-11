@@ -10,7 +10,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						@if(@getimagesize( url(logo_image_url()) ))
+						@if( logo_image_url() )
 						<span>
 							<a href="{{url('home')}}">
 								{{HTML::image(url(logo_image_url()), 'logo', array('class'=>'logo'))}}
@@ -57,7 +57,6 @@
 								</li>
 							</ul>
 							@endif
-							
 						</div>
 					</div>
 				</div>

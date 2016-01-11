@@ -117,7 +117,8 @@ body {
   background: #fff;
   padding: 5px 0 }
   #header .logo {
-    margin: 8px 23px }
+    margin: 8px 23px; max-height: 120px
+  }
   #header span {
     font-family: ArnoPro;
     font-style: italic;

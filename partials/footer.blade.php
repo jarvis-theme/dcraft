@@ -42,7 +42,7 @@
                         <div class="col-sm-5">
                             <div class="content-footer-child">
                                 <h3>Tentang Kami</h3>
-                                <p>{{short_description($aboutUs[1]->isi,400)}}</p>
+                                <p>{{short_description(about_us()->isi,400)}}</p>
                             </div>
                         </div>
                         @foreach(all_menu() as $key=>$menu)
