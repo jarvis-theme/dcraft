@@ -1,6 +1,7 @@
 <div class="container blogs">
     <div class="row mp">
         <div class="col-sm-3">
+            @if(count(list_category()) > 0)
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -34,6 +35,7 @@
                 @endforeach
                 </ul>
             </div>
+            @endif
             @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
@@ -81,15 +83,13 @@
             </div>
             @endif
 
-            @if(count(vertical_banner()) > 0)
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
-            @endif
         </div>
         <div class="col-sm-9">
             <div class="single-page">

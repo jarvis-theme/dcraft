@@ -87,46 +87,47 @@
 			</table>
 		</div>
 		<div class="row">
-			<div class="col-md-5">
-			@if($order->jenisPembayaran==1)
+			<div class="col-md-5 col-md-offset-4">
+			@if($order->jenisPembayaran==1 && $order->status == 0)
 				@if($checkouttype==1)                         
 				{{-- */ $url = 'konfirmasiorder/' /* --}}
 				@else                         
 				{{-- */ $url = 'konfirmasipreorder/' /* --}}
 				@endif
+				<h2 class="confirm-title">Konfirmasi Pembayaran</h2>
+				<hr>
 				{{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}}                           
-				<div class="form-group">
-					<label  class="control-label"> Nama Pengirim:</label>
-					<input type="text" class="form-control" id="search" placeholder="Nama Pengirim" name='nama' required>
-				</div>
-				<div class="form-group">
-					<label  class="control-label"> No Rekening:</label>
-					<input type="text" class="form-control" id="search" placeholder="No Rekening" name='noRekPengirim' required>
-				</div>
-				<div class="form-group">
-					<label  class="control-label"> Rekening Tujuan:</label>
-					<select name="bank" class="form-control">
-						<option value=''>-- Pilih Bank Tujuan --</option>
-						@foreach ($banktrans as $bank)
-						<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group">
-					<label  class="control-label"> Jumlah:</label>
-					@if($checkouttype==1)        
-					<input type="text" class="form-control" id="search" placeholder="Jumlah dana yang ditransfer" name="jumlah" value="{{$order->total}}" required>
-					@else
-						@if($order->status < 2)
-						<input class="form-control" id="search" placeholder="Jumlah dana yang ditransfer" type="text" name="jumlah" value="{{$order->dp}}" required>
+					<div class="form-group">
+						<label  class="control-label"> Nama Pengirim:</label>
+						<input type="text" class="form-control" id="search" placeholder="Nama Pengirim" name="nama" required>
+					</div>
+					<div class="form-group">
+						<label  class="control-label"> No Rekening:</label>
+						<input type="number" class="form-control" id="search" placeholder="No Rekening" name="noRekPengirim" required>
+					</div>
+					<div class="form-group">
+						<label  class="control-label"> Rekening Tujuan:</label>
+						<select name="bank" class="form-control">
+							<option value="">-- Pilih Bank Tujuan --</option>
+							@foreach ($banktrans as $bank)
+							<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group">
+						<label  class="control-label"> Jumlah:</label>
+						@if($checkouttype==1)        
+						<input type="number" class="form-control" id="search" placeholder="Jumlah Transfer" name="jumlah" value="{{$order->total}}" required>
+						@else
+							@if($order->status < 2)
+							<input class="form-control" id="search" placeholder="Jumlah Transfer" type="number" name="jumlah" value="{{$order->dp}}" required>
 
-						@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-						<input class="form-control" id="search" placeholder="Jumlah dana yang ditransfer" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
+							@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
+							<input class="form-control" id="search" placeholder="Jumlah Transfer" type="number" name="jumlah" value="{{$order->total - $order->dp}}" required>
+							@endif
 						@endif
-					@endif
-				  
-				</div>
-				<button type="submit" class="btn btn-success">Konfirmasi Order</button>
+					</div>
+					<button type="submit" class="btn btn-success">Konfirmasi</button>
 				{{Form::close()}}
 			@endif
 			<br>
@@ -137,7 +138,7 @@
 			<h3><center>Paypal Payment Details</center></h3><br>
 			<hr>
 			<div class="table-responsive">
-				<table class='table table-bordered'>
+				<table class="table table-bordered">
 					<tr>
 						<td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td>
 					</tr>

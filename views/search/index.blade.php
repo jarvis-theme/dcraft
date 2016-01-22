@@ -1,6 +1,7 @@
 <div class="container blogs">
     <div class="row mp">
         <div class="col-sm-4 col-md-3">
+            @if(count(list_category()) > 0)
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -34,6 +35,7 @@
                 @endforeach
                 </ul>
             </div>
+            @endif
             @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
@@ -81,7 +83,7 @@
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -92,7 +94,7 @@
                     @if(count($hasilpro) > 0)
                     <div class="row np">
                         @foreach($hasilpro as $produks)
-                        <div class="col-sm-6 col-md-4">
+                        <div class="col-xs-6 col-sm-6 col-md-4">
                             <div class="product-categories-list">
                                 {{HTML::image(product_image_url($produks->gambar1,'medium'), $produks->nama)}}
                                 <div class="tab-title">
@@ -102,8 +104,7 @@
                                 <span class="caption-product-list fade-caption">
                                     <h3>{{short_description($produks->nama,22)}}</h3>
                                     <h2>{{price($produks->hargaJual)}}</h2>
-                                    <p>{{short_description($produks->deskripsi,143)}}</p>
-                                    <br>
+                                    <p>{{short_description($produks->deskripsi,130)}}</p>
                                     <a href="{{product_url($produks)}}" class="btn-chart">Lihat Produk</a>
                                 </span>
                             </div>

@@ -104,7 +104,7 @@
                         </div>
                         <div class="pages custom-font-1">{{list_order()->links()}}</div>
                         @else
-                        <span> Belum ada data order</span>
+                        <p class="italic"> Belum ada data order</p>
                         @endif
                     @else 
                         @if($inquiry->count()!=0)

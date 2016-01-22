@@ -12,7 +12,7 @@
 				@if($i >= 0 && $i < 6)
                 <li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
                 @endif
-            {{--*/ $i += 1 /*--}}
+            	{{--*/ $i += 1 /*--}}
             @endforeach
 				<li class="pull-right">
 					<form action="{{url('search')}}" method="post" class="form-search">

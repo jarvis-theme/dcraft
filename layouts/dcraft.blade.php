@@ -35,15 +35,17 @@
 								</li>
 								<li>
 									<a href="{{url('logout')}}">
-										Login <i class="btn-circle fa fa-angle-down"></i>
+										Logout <i class="btn-circle fa fa-angle-down"></i>
 									</a>
 								</li>
-								{{shopping_cart()}}
+								<li class="open-shop" id="shoppingcartplace">
+									{{shopping_cart()}}
+								</li>
 							</ul>
 							@else
 							<ul id="parent-option">
 								<li>
-									<a href="{{url('member/create')}}" style="font-style:italic">
+									<a href="{{url('member/create')}}">
 										Register <i class="btn-circle fa fa-angle-down"></i>
 									</a>
 								</li>

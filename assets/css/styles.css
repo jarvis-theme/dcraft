@@ -745,8 +745,8 @@ body {
 
 .product-default {
   width: 100%;
-  margin-bottom: 5px;
-  height: 341px }
+  margin-bottom: 5px; min-height: 250px;
+  /*height: 341px*/ }
   .product-default span {
     opacity: 0;
     display: block;
@@ -779,7 +779,7 @@ body {
     font-size: 1em;
     text-align: center;
     font-weight: 400;
-    padding: 13px 14px }
+    padding: 0 14px 14px }
   .product-default .tab-rating {
     padding-top: 20px;
     margin: 0 }
@@ -927,12 +927,12 @@ body {
     .product-other .tab-title-default h2 {
       color: #000;
       font-family: "Source Sans Pro", sans-serif;
-      font-size: 1.8em;
+      font-size: 1.5em;
       font-weight: 300 }
     .product-other .tab-title-default h3 {
       color: #ff0000;
       font-family: "Source Sans Pro", sans-serif;
-      font-size: 2.5em;
+      font-size: 1.3em;
       font-weight: 300 }
 
 .hot-news {
@@ -1059,8 +1059,7 @@ body {
   width: 100%;
   overflow: hidden;
   background: #fff;
-  margin-left: 19px;
-  margin-bottom: 30px;
+  margin: 25px 0 30px 19px;
   -webkit-box-shadow: 0px 3px 5px 0px #adabad;
   -moz-box-shadow: 0px 3px 5px 0px #adabad;
   box-shadow: 0px 3px 5px 0px #adabad;
@@ -1295,13 +1294,13 @@ body {
 }
 .banner-left {
   width: 100%;
-  margin-left: 14px }
-  .banner-left img {
-    margin: 5px }
+  margin: 25px 0 0 14px;
+}
+.banner-left img { margin: 5px }
 
 @media screen and (max-width: 50em) {
-  .banner-left {
-    margin-left: -7px } }
+  .banner-left { margin-left: auto }
+}
 .subscribe {
   width: 100%;
   margin: 20px 20px;
@@ -1560,7 +1559,7 @@ body {
       font-size: 1.5em;
       margin: 2px;
       font-weight: 300;
-      font-size: -webkit-xxx-large;
+      /*font-size: -webkit-xxx-large;*/
        }
     .detail-product .product-description .tab-rating {
       margin: 10px 0 }
@@ -1726,10 +1725,10 @@ body {
       text-align: center;
       position: absolute;
       top: 0;
-      left: 15px;
+      left: 0;
       padding-right: 8px;
       height: 100%;
-      width: 88% }
+      width: 100% }
     @media screen and (max-width: 37.5em) {
       .related-page .related-product span {
         width: 100% } }
@@ -1781,7 +1780,7 @@ body {
 .product-categories {
   overflow: hidden;
   width: 100%;
-  margin-top: 77px;
+  margin-top: 25px;
   padding-right: 35px;
   display: block }
   .product-categories .product-categories-list {
@@ -1830,7 +1829,9 @@ body {
       font-family: "Source Sans Pro", sans-serif;
       font-weight: 500;
       font-size: 0.9em;
-      padding: 0 20px }
+      padding: 0 20px;
+      margin-bottom: 20px
+    }
     .product-categories .product-categories-list .btn-chart {
       background: #488204;
       padding: 10px;
@@ -2126,7 +2127,7 @@ ul.navigation li a{
   padding: 0px 50px;
   background-color: #fff;
 }
-.confirOrder h2.title{
+.confirOrder h2.title, .title{
   color: #5a9a0f;
 }
 .table-striped thead tr th{
@@ -2156,7 +2157,7 @@ margin: 0 10px;
   margin-right: auto;
 }
 .bg-grey5 img{
-  height: 163px;
+  /*height: 163px;*/
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -2172,11 +2173,11 @@ margin: 0 10px;
   }
   .product-full .tab-title-default h2,
   .product-other .tab-title-default h2 {
-    font-size: 23px;
+    font-size: 15px;
   }
   .product-full .tab-title-default h3,
   .product-other .tab-title-default h3 {
-    font-size: 23px;
+    font-size: 15px;
   }
   .option-right > ul#parent-option > li.open-shop {
     margin: 10px 0 !important;
@@ -2185,6 +2186,10 @@ margin: 0 10px;
   .left-section #tab-best-selling img {
     width: 80px;
   }
+  .product-default h3, .product-default h2{
+    padding: 2px
+  }
+  .product-default span{padding-top: 5px}
 }
 
 @media screen and (max-width: 376px) {
@@ -2213,9 +2218,26 @@ margin: 0 10px;
   .product-other {
     margin: 0px;
   }
-  .item1, .item2 { width: 100% }
+  .item1, .item2 { width: 50%}
   #slides { margin-top: 20px }
-  .checkout .btn-detail { float: none !important }
+  .checkout .btn-detail { float: none !important }.product{padding: 0}
+  .product-default h3{font-size: 17px}.product-other .tab-title-default{margin-bottom: 20px}
+  .product-default h2{font-size: 17px}.product-default p{font-size: 11px}
+  .related-product span h3{margin: 5px}
+  .related-product span h2{font-size: 14px}.related-page .related-product p{margin: 5px 5px 10px; font-size: 12px}
+  .product-categories .product-categories-list{padding: 10px 15px}
+  .product-categories .product-categories-list span{width: auto}
+  .product-categories-list img{height: auto}
+  .product-categories .product-categories-list .tab-title .title, .product-categories .product-categories-list .tab-title .price{font-size: 12px}
+  .product-categories .product-categories-list span h3{font-size: 13px; margin: 5px 0}
+  .product-categories .product-categories-list span h2{font-size: 12px; margin: 5px 0}
+  .product-categories .product-categories-list span p{font-size: 10px;padding-bottom: 7px; margin-bottom: 3px}
+  .product-categories{padding: 0}.np{margin: 0}
+  .related-page .row{margin-right: auto; margin-left: auto}
+  .related-page .related-product{padding: 15px}
+  .related-page .related-product h3{font-size: 13px}
+  .related-page .related-product h2{font-size: 12px}
+  .product-categories .product-categories-list a, .related-page .related-product a, .product-default a{font-size: 11px}
 }
 @media screen and (max-width: 768px) {
   .navigation-left ul {
@@ -2230,14 +2252,12 @@ margin: 0 10px;
 .navigation-left ul > li  > ul > li > ul > li{
   border-bottom: transparent;
 }
-
 .bxslider li img{
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-
 #side-category{
   padding: 10px;
   margin: 10px;
@@ -2334,50 +2354,54 @@ div.footer-support div.description > blockquote {
 .respond { margin-top: 50px;padding-left: 0px }
 .quote-person {margin-left: 30px;}
 .side-collection { margin: 10px 0 }
-.sidey{margin-top: 75px;}
 
-@media (min-width: 745px) and (max-width: 768px) {
+@media screen and (min-width: 260px) and (max-width: 381px){
+  #header ul#parent-option .open-shop{float: right;}
+}
+@media screen (min-width: 745px) and (max-width: 768px) {
   .item1 { width: 49% !important }
   .item2{width: 50%}
   .item2 > .product{padding: 30px 0}
 }
-.blogs{margin-top:-50px}
-#articleblog{margin-bottom:10px;background-color:#fff}
-.underline{text-decoration: underline}
-.backwhite{background-color:#fff}
-.detail-order{margin-left: 8px}
-.confirm{margin-top:50px;margin-bottom:50px}
-.detailblog{margin-bottom:10px}
-#confirm-order{margin: 0 30px}
-#search-order{background-color: #FFF;border-radius: 10px;text-align: center;margin-bottom: 20px}
-#textconfirm{margin-top:0}
-#btncode{margin-left:10px}
-#bestcontact{margin-top: 77px}
-#maplocation{padding-top:25px}
-#mapdetail{margin-bottom:30px}
-.locate{float:right;width:100%}
-.zeropadleft{padding-left: 0px}
-.transparent{background-color:transparent}
-#homecollection{font-size:1.5em; float:left;margin-bottom:15px}
-#homes{margin-bottom:20px}
-#textcollection{margin-top:23px}
-.noresult{font-style:italic; text-align:center}
-.center{text-align: center}
-#logins{background-color: #fff;border-radius: 10px}
-#reg{margin-bottom:50px}#texthal{margin-bottom: 3px}
-#articleblog{margin:0 10px 10px; padding-top: 5px}#blogtag{margin-bottom: 15px}#testitext{margin-top: 1px;margin-bottom: 20px}
-#footertesti{margin: 10px 0px -10px -5px; color: #3f3731}.nodecor{text-decoration: none}.tos{padding: 10px 30px}
-@media (max-width: 1200px) {
-  .blogs .mp .product-categories{padding-right: 0}
-}
-.powerup{padding: 15px;background: #fff;margin-top: 75px;margin-bottom: -50px}
-.powerup input[type="submit"]{display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #fff;background-color: #5cb85c;border-color: #4cae4c;margin-top: 10px}
-.center{text-align: center}
-@media screen and (min-width: 260px) and (max-width: 381px){
-  #header ul#parent-option .open-shop{float: right;}
+@media screen and (max-width: 800px){
+  .adv-img, .banner-left img{margin: 0 auto ; display: block}
+  .item1{width: 50%}
 }
 @media screen and (min-width: 960px) and (max-width: 991px){
   #menus ul > li > a:hover:before {
     border-bottom: transparent;
   }
 }
+@media screen and (max-width: 1023px){
+  .confirOrder h2.title{font-size: 23px}
+  .confirm-title{text-align: left !important; font-size: 20px}
+}
+@media screen (max-width: 1200px) {
+  .blogs .mp .product-categories{padding-right: 0}
+}
+@media screen and (min-width: 801px) and (max-width: 1200px){
+  .item1{width: 33.3%}
+}
+
+.blogs{margin-top:-50px}#articleblog{margin-bottom:10px;background-color:#fff}
+.underline{text-decoration: underline}.backwhite{background-color:#fff}
+.detail-order{margin-left: 8px}.confirm{margin-top:50px;margin-bottom:50px}
+.detailblog{margin-bottom:10px}#confirm-order{margin: 0 30px}
+#search-order{background-color: #FFF;border-radius: 10px;text-align: center;margin-bottom: 20px}
+#textconfirm{margin-top:0}#btncode{margin-left:10px}
+#bestcontact{margin-top: 77px}#maplocation{padding-top:25px}
+#mapdetail{margin-bottom:30px}.locate{float:right;width:100%}
+.zeropadleft{padding-left: 0px}.transparent{background-color:transparent}
+#homecollection{font-size:1.5em; float:left;margin-bottom:15px}
+#homes{margin-bottom:20px}#textcollection{margin-top:23px}
+.noresult{font-style:italic; text-align:center}
+.center{text-align: center}#logins{background-color: #fff;border-radius: 10px}
+#reg{margin-bottom:50px}#texthal{margin-bottom: 3px}
+#articleblog{/*margin:0 10px 10px; */padding-top: 5px}#blogtag{margin-bottom: 15px}#testitext{margin-top: 1px;margin-bottom: 20px}
+#footertesti{margin: 10px 0px -10px -5px; color: #3f3731}.nodecor{text-decoration: none}.tos{padding: 10px 30px}
+.powerup{padding: 15px;background: #fff;margin-top: 75px;margin-bottom: -50px}
+.powerup input[type="submit"]{display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #fff;background-color: #5cb85c;border-color: #4cae4c;margin-top: 10px}
+.center{text-align: center}.italic{font-style: italic !important}
+.img-banner:first-child{margin-top: 0}
+.confirm-title{color: #5a9a0f; text-align: center; margin-bottom: 0}
+.img-banner{margin-top: 10px}.footer-bottom img{border-radius: 7px}.fullwidth{width: 100%}

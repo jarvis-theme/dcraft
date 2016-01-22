@@ -1,6 +1,7 @@
 <div class="container blogs">
     <div class="row mp">
         <div class="col-sm-4 col-md-3">
+            @if(count(list_category()) > 0)
             <div class="navigation-left sidey">
                 <ul id="category" class="sidenav">
                 @foreach(list_category() as $side_menu)
@@ -34,6 +35,7 @@
                 @endforeach
                 </ul>
             </div>
+            @endif
             @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
@@ -166,18 +168,13 @@
                 @if(count(other_product($produk,4)) > 0)
                     <h3 class="detail-title">Produk Lain</h3>
                     @foreach(other_product($produk,4) as $relproduk)
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-xs-6 col-sm-6 col-md-3" style="padding-right: 5px;padding-left: 5px;">
                         <div class="related-product">
                             <img src="{{product_image_url($relproduk->gambar1,'medium')}}" alt="{{$relproduk->nama}}">
                             <span class="related-caption-product fade-caption">
                                 <h3>{{short_description($relproduk->nama,12)}}</h3>
                                 <h2>{{price($relproduk->hargaJual)}}</h2>
-                                <p>
-                                    <a href="{{product_url($relproduk)}}">
-                                        {{short_description($produk->deskripsi,26)}}
-                                    </a>
-                                </p>
-                                <br>
+                                <p>{{short_description($produk->deskripsi,26)}}</p>
                                 <a href="{{product_url($relproduk)}}" class="btn-chart">Lihat Produk</a>
                             </span>
                         </div>

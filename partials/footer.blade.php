@@ -4,7 +4,7 @@
             @foreach(horizontal_banner() as $banners)
             <div class="col-sm-12">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo', array('width'=>'1168', 'height'=>'200', "class"=>"img-responsive"))}}
+                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo', array('width'=>'1168', "class"=>"img-responsive"))}}
                 </a>
             </div>
             @endforeach
@@ -16,8 +16,8 @@
     <div class="container">
         <div class="row mp no-rutter">
             <div class="footer-support">
+                @if(count(random_testimonial(4)) > 0)
                 <div class="header-support">
-                    @if(count(random_testimonial(4)) > 0)
                     <h1>Testimonial</h1>
                     <div class="row">
                         @foreach(random_testimonial(4) as $testimonial)
@@ -34,8 +34,8 @@
                     <div class="col-xs-12 col-sm-12">
                         <a href="{{url('testimoni')}}" class="link-more-testimonial">Lihat Semua</a>
                     </div>
-                    @endif
                 </div>
+                @endif
 
                 <div class="content-support">
                     <div class="row">
@@ -112,22 +112,22 @@
                         <div class="col-xs-12 center">
                             @if(!empty($bank))
                                 @foreach(list_banks() as $value)
-                                <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="Payment">
+                                <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
                                 @endforeach
                             @endif
                             @foreach(list_payments() as $pay)
                                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                                <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
+                                <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
                                 @endif
                                 @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                                <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                                <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
                                 @endif
                                 @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                                <img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" />
+                                <img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Paypal" />
                                 @endif
                             @endforeach
                             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                            <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
+                            <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
                             @endif
                         </div>
                     </div>

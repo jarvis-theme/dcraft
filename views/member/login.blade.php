@@ -1,24 +1,24 @@
 <div class="container confirm">
 	<div class="row mp" id="logins">
 		<br>
-	    <div class="col-sm-3"></div>
-	    <div class="col-sm-6">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
 			<p>Silahkan Login untuk kemudahan melakukan checkout. Cepat dan Mudah dalam bertransaksi. Mudah untuk mengetahui Order History dan Status.</p>
 			<br>
 			<h2>Log in</h2>
 			<hr><br>
-	        <form class="form-horizontal" action="{{url('member/login')}}" method="post">
+			<form class="form-horizontal" action="{{url('member/login')}}" method="post">
 				<div class="form-group">
-			    	<label for="inputEmail3" class="col-sm-2">Email</label>
-			    	<div class="col-sm-6">
-			    		<input type="email" class="form-control" name="email" placeholder="Email" value="{{Input::old('email')}}" required>
-			    	</div>
+					<label for="inputEmail3" class="col-sm-2">Email</label>
+					<div class="col-sm-6">
+						<input type="email" class="form-control" name="email" placeholder="Email" value="{{Input::old('email')}}" required>
+					</div>
 				</div>
 				<div class="form-group">
-			    	<label for="inputPassword3" class="col-sm-2">Password</label>
+					<label for="inputPassword3" class="col-sm-2">Password</label>
 					<div class="col-sm-6">
-			    		<input type="password" class="form-control" name="password" placeholder="Password" required>
-			   		</div>
+						<input type="password" class="form-control" name="password" placeholder="Password" required>
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
@@ -38,6 +38,6 @@
 					</div>
 				</div>
 			</form>
-	    </div>
+		</div>
 	</div>
 </div>

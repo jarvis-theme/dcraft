@@ -1,7 +1,8 @@
 <div class="container blogs">
     <div class="row mp">
         <div class="col-xs-12 col-sm-4 col-md-3">
-           <div class="navigation-left">
+            @if(count(list_blog_category()) > 0)
+            <div class="navigation-left">
                 <div class="header-left-section title-category">
                     <h1>Kategori</h1>
                 </div>
@@ -13,6 +14,7 @@
                 @endforeach
                 </ul>
             </div>
+            @endif
             @if(count(best_seller()) > 0)
             <div class="left-section">
                 <div class="header-left-section">
@@ -39,7 +41,7 @@
             @foreach(vertical_banner() as $banners)
             <div class="banner-left">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach

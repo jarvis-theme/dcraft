@@ -16,7 +16,7 @@
 								<h3>{{price($home1->hargaJual)}}</h3>
 							</div>
 							<span class="caption-product-related fade-caption">
-								<a href="#"><h3>{{short_description($home1->nama,25)}}</h3></a>
+								<a href="{{product_url($home1)}}"><h3>{{short_description($home1->nama,25)}}</h3></a>
 								<h2>{{price($home1->hargaJual)}}</h2>
 								<div class="tab-rating">
 								</div>
@@ -35,14 +35,16 @@
 
 <div class="container container-cstm">
 	<div class="row no-rutter mb">
-		<div class="product-other ">
+		<div class="product-other">
+			{{-- */ $jml = count(best_seller()) /* --}}
+			@if($jml > 0)
 			<div class="col-sm-8">
 				<div class="tab-title">
 					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/bs-icon.png')}}" class="icon-title" alt="best seller"> Produk Terlaris</h1>
 				</div>
 				<div class="product-lates wow fadeInUp">
 					@foreach(best_seller(4) as $bestproduk )
-					<div class="item2">
+					<div class="item2 {{$jml == 1 ? 'fullwidth' : ''}}">
 						<div class="product product-default bg-grey5">
 							{{HTML::image(product_image_url($bestproduk->gambar1,'medium'), $bestproduk->nama)}}
 							<div class="tab-title-default">
@@ -64,6 +66,9 @@
 				<br><br>
 			</div>
 			<div class="col-sm-4">
+			@else
+			<div class="col-sm-12">
+			@endif
 				<div class="tab-title">
 					<h1><img src="{{url(dirTemaToko().'dcraft/assets/img/hn-icon.png')}}" class="icon-title" alt="news"> Artikel</h1>
 				</div>
