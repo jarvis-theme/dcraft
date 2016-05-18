@@ -1485,7 +1485,7 @@ body {
 .detail-product {
   width: 100%;
   overflow: hidden;
-  margin-top: 65px }
+  margin-top: 25px }
   .detail-product .share {
     /*position: absolute;*/
     right: 28px;
@@ -2402,6 +2402,21 @@ div.footer-support div.description > blockquote {
 .powerup{padding: 15px;background: #fff;margin-top: 75px;margin-bottom: -50px}
 .powerup input[type="submit"]{display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;background-image: none;border: 1px solid transparent;border-radius: 4px;color: #fff;background-color: #5cb85c;border-color: #4cae4c;margin-top: 10px}
 .center{text-align: center}.italic{font-style: italic !important}
-.img-banner:first-child{margin-top: 0}
+.img-banner:first-child{margin-top: 0}#otherprod{padding-right: 5px;padding-left: 5px}
 .confirm-title{color: #5a9a0f; text-align: center; margin-bottom: 0}
 .img-banner{margin-top: 10px}.footer-bottom img{border-radius: 7px}.fullwidth{width: 100%}
+center#paypal button[type="submit"] {
+    background: #019CDE;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+center#paypal button[type="submit"]:hover { opacity: 0.6; cursor: pointer; }
+form[name="order"] > input[name="SAVE"] {
+  background: #B5062D; border: medium none; padding: 10px; border-radius: 5px; color: #fff;
+}
+form[name="order"] > input[name="SAVE"]:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

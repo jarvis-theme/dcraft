@@ -93,38 +93,36 @@
         </div>
         <div class="col-sm-9">
             <div class="single-page">
-                <div class="single-page">
-                    <h1>Testimonial</h1>
-                    @foreach (list_testimonial() as $items)  
-                    <div class="quotes">
-                        <blockquote>
-                            {{$items->isi}}
-                        </blockquote>
-                        <p class="quote-person">~ {{$items->nama}} ~</p>
+                <h1>Testimonial</h1>
+                @foreach (list_testimonial() as $items)  
+                <div class="quotes">
+                    <blockquote>
+                        {{$items->isi}}
+                    </blockquote>
+                    <p class="quote-person">~ {{$items->nama}} ~</p>
+                </div>
+                @endforeach
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{list_testimonial()->links()}}
                     </div>
-                    @endforeach
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{list_testimonial()->links()}}
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="respond col-md-6">
-                        <h3 id="testitext">Buat Testimonial</h3>
-                        <form method="post" action="{{url('testimoni')}}" role="form">
-                            <div class="form-group">
-                                <label for="name">Nama</label>
-                                <input type="text" class="form-control" name="nama" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Testimonial</label>
-                                <textarea name="testimonial" class="form-control" rows="3" required></textarea>
-                            </div>
-                            <button class="btn btn-success" type="submit">Kirim Testimonial</button>
-                            <button class="btn btn-default" type="reset">Reset</button>
-                        </form>
-                    </div>
+                <div class="respond col-md-6">
+                    <h3 id="testitext">Buat Testimonial</h3>
+                    <form method="post" action="{{url('testimoni')}}" role="form">
+                        <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Testimonial</label>
+                            <textarea name="testimonial" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit">Kirim Testimonial</button>
+                        <button class="btn btn-default" type="reset">Reset</button>
+                    </form>
                 </div>
             </div>
         </div>

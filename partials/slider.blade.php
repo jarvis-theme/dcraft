@@ -4,12 +4,12 @@
 			<div class="bxslider">
 				@foreach (slideshow() as $val)
 				<li>
-			    	@if(!empty($val->url))
-			  		<a href="{{filter_link_url($val->url)}}" target="_blank">
-			  		@else
-			  		<a href="#">
-			  		@endif
-						{{HTML::image(slide_image_url($val->gambar), 'slide banner')}}
+					@if(!empty($val->url))
+					<a href="{{filter_link_url($val->url)}}" target="_blank">
+					@else
+					<a href="#">
+					@endif
+						{{HTML::image(slide_image_url($val->gambar), $val->title)}}
 					</a>
 				</li>
 				@endforeach
@@ -19,9 +19,9 @@
 				<div class="square-link prev-link">
 					<a href="#" id="slider-prev"></a>
 				</div>
-			  	<div class="square-link next-link">
-			  		<a href="#" id="slider-next"></a>
-			  	</div>
+				<div class="square-link next-link">
+					<a href="#" id="slider-next"></a>
+				</div>
 			</div>
 			@endif
 		</div>

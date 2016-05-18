@@ -168,7 +168,7 @@
                 @if(count(other_product($produk,4)) > 0)
                     <h3 class="detail-title">Produk Lain</h3>
                     @foreach(other_product($produk,4) as $relproduk)
-                    <div class="col-xs-6 col-sm-6 col-md-3" style="padding-right: 5px;padding-left: 5px;">
+                    <div class="col-xs-6 col-sm-6 col-md-3" id="otherprod">
                         <div class="related-product">
                             <img src="{{product_image_url($relproduk->gambar1,'medium')}}" alt="{{$relproduk->nama}}">
                             <span class="related-caption-product fade-caption">
@@ -183,6 +183,7 @@
                 @endif
                 </div>
             </div>
+            {{ pluginComment(product_url($produk), @$produk) }}
         </div>
     </div>
 </div>
