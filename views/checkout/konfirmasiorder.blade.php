@@ -90,9 +90,9 @@
 				</tbody>
 			</table>
 		</div>
+		@if($order->jenisPembayaran==1 && $order->status == 0)
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-			@if($order->jenisPembayaran==1 && $order->status == 0)
 				@if($checkouttype==1)                         
 				{{-- */ $url = 'konfirmasiorder/' /* --}}
 				@else                         
@@ -133,10 +133,10 @@
 					</div>
 					<button type="submit" class="btn btn-success">{{trans('content.step5.confirm_btn')}}</button>
 				{{Form::close()}}
-			@endif
 			<br>
 			</div>
 		</div>
+		@endif
 
 		@if($paymentinfo!=null)
 			<h3><center>Paypal Payment Details</center></h3><br>
@@ -181,6 +181,20 @@
 				<br>
 			</div>
 		</div>
+		@elseif($order->jenisPembayaran==4) 
+			@if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<center>
+						<h3 class="confirm-title">{{trans('content.step5.confirm_btn')}} iPaymu</h3>
+						<hr>
+						<p>{{trans('content.step5.ipaymu')}}</p>
+						<a class="btn btn-info" href="{{url('ipaymu/'.$order->id)}}" target="_blank">{{trans('content.step5.ipaymu_btn')}}</a>
+					</center>
+					<br>
+				</div>
+			</div>
+			@endif
 		@elseif($order->jenisPembayaran==5 && $order->status == 0)
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
