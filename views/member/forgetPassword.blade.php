@@ -5,7 +5,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Email">
             </div>
-            <button class="btn btn-success" type="button">Reset Password</button>
+            <button class="btn btn-success mt10" type="button">Reset Password</button>
             <br><br>
         </div>
         <div class="col-xs-12 col-sm-4">

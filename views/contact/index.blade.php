@@ -94,7 +94,7 @@
                         </div>
                         <br><br>
                         <div class="col-xs-12 col-sm-7 zeropadleft">
-                            <h2>Hubungi Kami</h2>
+                            <h2 class="title">Hubungi Kami</h2>
                             <form class="contact-form" action="{{url('kontak')}}" method="post">
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nama" name="namaKontak" type="text" required>

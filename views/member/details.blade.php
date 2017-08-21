@@ -6,7 +6,7 @@
     </div>
     <div class="container" >
         <div class="row mp">
-            <div class="col-sm-3">
+            <div class="col-sm-4 col-lg-3">
                 <div class="left-account">
                     <h3>My Account</h3>
                     <ul class="navigation">
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8 col-lg-9">
                 <div class="single-page">
                     @if($pengaturan->checkoutType!=2)
                         @if(list_order()->count())

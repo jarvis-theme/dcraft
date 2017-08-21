@@ -78,7 +78,7 @@
 						@foreach(list_blog(3) as $blog)
 						<li>
 							<h1><a href="{{blog_url($blog)}}">{{$blog->judul}}</a></h1>
-							<p>{{short_description($blog->isi,134)}}</p>
+							<p>{{short_description($blog->isi,205)}}</p>
 							<a href="{{blog_url($blog)}}" class="read-more-news">Selengkapnya</a>
 							<div class="clearfix"></div>
 						</li>

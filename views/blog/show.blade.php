@@ -70,7 +70,7 @@
             @endforeach
         </div>
         <div class="col-sm-8 col-md-9">
-            <div class="single-page backwhite">
+            <div class="single-page backwhite articles">
                 <div class="row">
                     <article class="col-lg-12 detailblog">
                         <h3>{{$detailblog->judul}}</h3>

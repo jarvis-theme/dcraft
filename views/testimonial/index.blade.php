@@ -92,7 +92,7 @@
             {{ Theme::partial('subscribe') }}
         </div>
         <div class="col-sm-9">
-            <div class="single-page">
+            <div class="single-page testi">
                 <h1>Testimonial</h1>
                 @foreach (list_testimonial() as $items)  
                 <div class="quotes">

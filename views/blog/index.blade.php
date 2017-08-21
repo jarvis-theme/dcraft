@@ -49,7 +49,7 @@
             {{ Theme::partial('subscribe') }}
         </div>
         <div class="col-xs-12 col-sm-8 col-m-9">
-            <div class="single-page">
+            <div class="single-page articles">
                 @if(count(list_blog(null,@$blog_category)) > 0)
                 <div class="row">
                     @foreach(list_blog(null,@$blog_category) as $blogs)

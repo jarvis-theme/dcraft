@@ -1,6 +1,6 @@
 <div class="container confirm">
 	<div class="row mp" id="confirm-order">
-		<div class="col-xs-12 col-sm-8" id="search-order">
+		<div class="col-xs-12 col-sm-7 col-lg-8" id="search-order">
 			<br>
 			<h2 id="textconfirm">Konfirmasi Order</h2>
 			<hr>
@@ -11,9 +11,9 @@
 			{{Form::close()}}
 			<br><br>
 		</div>
-		<div class="col-xs-12 col-sm-4">
+		<div class="col-xs-12 col-sm-5 col-lg-4">
 			@foreach(vertical_banner() as $banners)
-			<div class="img-banner">
+			<div class="img-banner center">
 				<a href="{{url($banners->url)}}">
 	    			{{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
 				</a>

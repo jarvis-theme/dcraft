@@ -39,16 +39,16 @@
 
                 <div class="content-support">
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <div class="content-footer-child">
                                 <h3>Tentang Kami</h3>
                                 <p>{{short_description(about_us()->isi,400)}}</p>
                             </div>
                         </div>
                         @foreach(all_menu() as $key=>$menu)
-                            @if($key == '2')
-                            <div class="col-sm-3">
-                                <div class="content-footer-child">
+                            @if($key == '2' || $key == 1)
+                            <div class="col-sm-2">
+                                <div class="content-footer-child qlink">
                                     <h3>{{$menu->nama}}</h3>
                                     <ul>
                                         @foreach($menu->link as $link_menu)

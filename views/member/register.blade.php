@@ -32,7 +32,14 @@
 				<div class="form-group">
 					<label for="dropdown" class="col-lg-2">Negara</label>
 					<div class="col-lg-10">
-						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'),array('required', 'class'=>'form-control', 'id'=>"negara", 'data-rel'=>"chosen", 'class'=>"form-control"))}}
+						<select class="form-control" name="negara" id="negara" data-rel="chosen" required>
+                            <option selected>-- Pilih Negara --</option>
+                            @foreach ($negara as $key=>$item)
+                                @if(strtolower($item)=='indonesia')
+                                <option value="1" {{Input::old('negara')==1 ? 'selected' : ''}}>{{$item}}</option>
+                                @endif
+                            @endforeach
+                        </select>
 					</div>
 				</div>
 				<div class="form-group">
@@ -76,7 +83,7 @@
 					<div class="col-lg-offset-2 col-lg-10">
 						<div class="checkbox">
 							<label>
-								<input name='readme' value="1" type="checkbox"> Saya telah membaca dan menyetujui <a href="{{URL::to('service')}}" target="_blank">Privacy Policy</a>
+								<input name="readme" value="1" type="checkbox" checked> Saya telah membaca dan menyetujui <a href="{{URL::to('service')}}" target="_blank">Privacy Policy</a>
 							</label>
 						</div>
 					</div>

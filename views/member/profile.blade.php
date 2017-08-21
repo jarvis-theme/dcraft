@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <div class="row mp">
-            <div class="col-sm-3">
+            <div class="col-sm-4 col-lg-3">
                 <div class="left-account">
                     <h3>My Account</h3>
                     <ul class="navigation">
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8 col-lg-9">
                 <div class="single-page">
                     {{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
                         <div class="form-group">
@@ -39,7 +39,14 @@
                         <div class="form-group">
                             <label for="inputCountry" class="col-md-2 control-label">Negara</label>
                             <div class="col-md-4">
-                                {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
+                                <select class="form-control" name="negara" id="negara" data-rel="chosen" required>
+                                    <option selected>-- Pilih Negara --</option>
+                                    @foreach ($negara as $key=>$item)
+                                        @if(strtolower($item)=='indonesia')
+                                        <option value="1" {{$user->negara==1 || Input::old("negara")==1 ? 'selected' : ''}}>{{$item}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>      
                         <div class="form-group">

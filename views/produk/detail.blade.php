@@ -85,7 +85,7 @@
             <form action="#" id="addorder">
                 <div class="detail-product">
                     <div class="row mp">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12 col-md-6">
                             <img id="imgZoom" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}" alt="{{$produk->nama}}">
                             <div id="product_detail">
                                 @if($produk->gambar1 != '')
@@ -110,7 +110,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12 col-md-6">
                             <div class="product-description">
                                 <h3 class="detail-title">{{$produk->nama}}</h3>
                                 <h3 class="detail-price">{{price($produk->hargaJual)}}</h3>
@@ -120,10 +120,10 @@
                                 <h2>Deskripsi Produk</h2>
                                 <p>{{short_description($produk->deskripsi, 700)}}</p>
                                 <div class="tab-quantity">
-                                    <h3>Quantity :</h3>
-                                    <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                    <input type='text' name='qty' value='1' class='qty' />
-                                    <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
+                                    <h3>Jumlah :</h3>
+                                    <button type="submit" class="qtyminus" field="qty" /><i class="fa fa-caret-left"></i></button>
+                                    <input type="text" name="qty" value="1" class="qty" pattern="[0-9]" />
+                                    <button type="button" value="+" class="qtyplus" field="qty" /><i class="fa fa-caret-right"></i></button>
                                 </div>
                                 <div class="avalaible-text">
                                     @if($produk->stok > 0)
@@ -136,10 +136,10 @@
                                     @endif
                                 </div>
                                 @if($opsiproduk->count() > 0)                 
-                                <div class="size-list">
+                                <div class="size-list pt10">
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Opsi :</label>
-                                        <div class="col-sm-5">
+                                        <h3>Opsi :</h3>
+                                        <div class="col-sm-5 p0">
                                             <select class="form-control attribute_select" name="opsiproduk">
                                                 <option value="">-- Pilih Opsi --</option>
                                                 @foreach ($opsiproduk as $key => $opsi)
@@ -152,16 +152,13 @@
                                     </div>
                                 </div>
                                 @endif
+                                <button class="addtocart btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Beli</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="checkout">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <button class="addtocart btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Beli</button>
-                    </div>
-                </div>
+                <div class="checkout"></div>
             </form>
             <div class="related-page">
                 <div class="row">
