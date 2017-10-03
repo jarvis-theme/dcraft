@@ -61,6 +61,7 @@
                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
                             @endif
                         </p>
+                        <img src="{{ imgString($blogs->isi) }}" />
                         <p>
                             {{shortDescription($blogs->isi,300)}}<br>
                             <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>

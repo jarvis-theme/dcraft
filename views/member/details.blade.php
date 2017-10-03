@@ -10,7 +10,7 @@
                 <div class="left-account">
                     <h3>My Account</h3>
                     <ul class="navigation">
-                        <li><a href="{{url('member')}}">Order History</a></li>                         
+                        <li><a href="{{url('member')}}">Order History</a></li>
                         <li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
                     </ul>
                 </div>

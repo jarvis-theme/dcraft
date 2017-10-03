@@ -101,6 +101,11 @@
                                         <span class="icon-sm" title="Tumblr"><i class="fa fa-tumblr icn"></i></span>
                                     </a>
                                     @endif
+                                    @if(!empty($kontak->picmix))
+                                    <a href="{{url($kontak->picmix)}}" target="_blank">
+                                        <img class="picmix" src="//d3kamn3rg2loz7.cloudfront.net/blogs/event/icon-picmix.png">
+                                    </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -112,7 +117,9 @@
                         <div class="col-xs-12 center">
                             @if(!empty($bank))
                                 @foreach(list_banks() as $value)
+                                @if($value->status == 1)
                                 <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                                @endif
                                 @endforeach
                             @endif
                             @foreach(list_payments() as $pay)
@@ -130,7 +137,7 @@
                             <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
                             @endif
                             @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
-                            <img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+                            <img src="{{url('img/bank/midtrans.png')}}" alt="Midtrans" title="Midtrans">
                             @endif
                         </div>
                     </div>

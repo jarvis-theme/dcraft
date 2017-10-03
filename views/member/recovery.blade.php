@@ -16,7 +16,6 @@
 						<input class="form-control" type="password" name="password_confirmation" placeholder="Konfirmasi Password Baru" required>
 					</div>
 				</div>
-	   
 				<div class="form-group">
 					<div class="col-lg-offset-3 col-lg-8">
 						<button type="submit" class="pull-left btn btn-info">Update Password</button>
