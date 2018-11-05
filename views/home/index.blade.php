@@ -11,8 +11,11 @@
 					<div class="item1">
 						<div class="product product-default bg-grey5">
 							{{HTML::image(product_image_url($home1->gambar1,'medium'), $home1->nama)}}
-							<div class="tab-title-default">
+							<div class="{{$home1->hargaCoret > 0 ? 'tab-title-default m0' : 'tab-title-default'}}">
 								<h2>{{short_description($home1->nama,25)}}</h2>
+								@if($home1->hargaCoret > 0)
+								<h3 class="pricecut">{{price($home1->hargaCoret)}}</h3>
+								@endif
 								<h3>{{price($home1->hargaJual)}}</h3>
 							</div>
 							<span class="caption-product-related fade-caption">

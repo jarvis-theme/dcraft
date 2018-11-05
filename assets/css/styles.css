@@ -1540,19 +1540,19 @@ body {
   .detail-product .product-description {
     width: 100%;
     overflow: hidden;
-    margin: 7px -10px }
+    margin: 10px -10px }
     .detail-product .product-description .detail-title {
       font-family: "Source Sans Pro", sans-serif;
       color: #000;
       font-size: 2.1em;
       margin: 2px;
-      font-weight: 300 }
+      font-weight: 500 }
     .detail-product .product-description .detail-price {
       font-family: "Source Sans Pro", sans-serif;
       color: #ff0000;
       font-size: 1.5em;
       margin: 2px;
-      font-weight: 300;
+      font-weight: 500;
       /*font-size: -webkit-xxx-large;*/
        }
     .detail-product .product-description .tab-rating {
@@ -2400,7 +2400,19 @@ form[name="order"] > input[name="SAVE"]:hover {
 .center { text-align: center; }
 .img-banner img { display: inline-block; }
 input[name="captcha"] { width: 50%; display: inline-block; }
-
+.pricecut {
+  color: #000 !important;
+  margin: 0;
+  text-decoration: line-through;
+}
+.m0 { margin: 0; }
+.inline { display: inline-block; }
+.detail-product .product-description .detail-price.cut {
+  display: inline-block;
+  text-decoration: line-through;
+  font-size: 15px;
+  color: #7b7b7b;
+}
 
 @media screen and (min-width: 260px) and (max-width: 381px){
   #header ul#parent-option .open-shop{float: right;}
@@ -2415,6 +2427,9 @@ input[name="captcha"] { width: 50%; display: inline-block; }
 @media (max-width: 425px) {
   .left-account { margin-left: 0; }
   .left-account ul { padding-left: 0; }
+}
+@media (max-width: 480px) {
+  .discount { margin-top: 7px; margin-bottom: 0; }
 }
 @media (min-width: 490px) and (max-width: 767px) {
   #logo { width: 25%; }

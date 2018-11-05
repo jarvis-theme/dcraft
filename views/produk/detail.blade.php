@@ -113,7 +113,10 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="product-description">
                                 <h3 class="detail-title">{{$produk->nama}}</h3>
-                                <h3 class="detail-price">{{price($produk->hargaJual)}}</h3>
+                                @if($produk->hargaCoret > 0)
+                                <h3 class="detail-price cut">{{price($produk->hargaCoret)}}</h3>
+                                @endif
+                                <h3 class="{{$produk->hargaCoret > 0 ? 'detail-price inline' : 'detail-price'}}">{{price($produk->hargaJual)}}</h3>
                                 <div class="tab-rating">
                                     {{sosialShare(url(product_url($produk)))}}
                                 </div>

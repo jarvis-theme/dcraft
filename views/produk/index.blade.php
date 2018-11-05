@@ -102,7 +102,10 @@
                             {{HTML::image(product_image_url($produks->gambar1,'medium'), $produks->nama)}}
                             <div class="tab-title">
                                 <h3 class="title">{{short_description($produks->nama,17)}}</h3>
-                                <h3 class="price">{{price($produks->hargaJual)}}</h3>
+                                @if($produks->hargaCoret > 0)
+                                <h3 class="price pricecut">{{price($produks->hargaCoret)}}</h3>
+                                @endif
+                                <h3 class="{{$produks->hargaCoret>0 ? 'm0 price' : 'price'}}">{{price($produks->hargaJual)}}</h3>
                             </div>
                             <span class="caption-product-list fade-caption">
                                 <h3>{{short_description($produks->nama,17)}}</h3>
